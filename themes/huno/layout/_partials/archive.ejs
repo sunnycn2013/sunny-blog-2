@@ -30,7 +30,7 @@ if (is_category()) {
 
                   <div class="post-list__meta">
                     <time datetime="<%= date(post.date, config.date_format) %>" class="post-list__meta--date date"><%= date(post.date, config.date_format) %></time> &#8226; 
-                    <span class="post-list__meta--tags tags"></span>
+                    <span class="post-list__meta--tags tags"><%- config.title %></span>
                     <a class="btn-border-small" href="<%- config.root %><%- post.path %>"/>继续阅读</a>
                   </div>
                   <hr class="post-list__divider" />

@@ -76,6 +76,10 @@
   color: #f39ca4;
   font-size: .8em;
 }
+.read-more-item-link{
+  display: block;
+  float: right;
+}
 .read-more-item.read-more-item-left {
   float: left;
 } 

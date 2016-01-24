@@ -8,11 +8,11 @@
        </a></h2>
        <p class="excerpt"><%- page.prev.description.substr(0,200) %> &hellip;</p>
        <div class="post-list__meta">
+          <a class="btn-border-small read-more-item-link" href="<%- config.root %><%- page.prev.path %>">继续阅读</a>
           <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
           <%= date(page.prev.date, config.date_format) %>
           </time> &#8226; 
           <span class="post-list__meta--tags tags">风之痕</span>
-          <a class="btn-border-small" href="<%- config.root %><%- page.prev.path %>">继续阅读</a>
        </div>
     <% }%>
    </div>
@@ -26,10 +26,10 @@
        <p class="excerpt"><%- page.next.description.substr(0,150) %>&hellip;
        </p>
        <div class="post-list__meta">
+          <a class="btn-border-small read-more-item-link" href="<%- config.root %><%- page.next.path %>">继续阅读</a>
           <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
           <%= date(page.next.date, config.date_format) %> </time> &#8226; 
           <span class="post-list__meta--tags tags">风之痕</span>
-          <a class="btn-border-small" href="<%- config.root %><%- page.next.path %>">继续阅读</a>
        </div>
     <% }%>
    </div>
