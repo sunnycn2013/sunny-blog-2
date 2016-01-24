@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+    <title>
+    Hexo教程GitCafe部署搭建博客 | 风之痕 | 风之痕的博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="GitCafe下使用Hexo搭建博客,一直以来都是喜欢在CSDN、cnblogs上分享一些自己的想法，渐渐的发觉其实这些平台有时间并不能满足自己的某些需求。对于从事技术行业以来，有自己的博客相信意义就不再多说了。不说好多大牛们都有自己的站点，作为一个大牛路上的前行者，心动不如行动，动起手来...一开始的时间选择了wordexpress、EMlog这些模版(基于PHP)，在某宝上买了基础版的主机，部">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Hexo教程GitCafe部署搭建博客 | 风之痕">
+    <meta property="og:url" content="http://sunnycn.gitcafe.io/2016/01/10/hexo-course/index.html">
+    <meta property="og:site_name" content="风之痕">
+    <meta property="og:description" content="GitCafe下使用Hexo搭建博客,一直以来都是喜欢在CSDN、cnblogs上分享一些自己的想法，渐渐的发觉其实这些平台有时间并不能满足自己的某些需求。对于从事技术行业以来，有自己的博客相信意义就不再多说了。不说好多大牛们都有自己的站点，作为一个大牛路上的前行者，心动不如行动，动起手来...一开始的时间选择了wordexpress、EMlog这些模版(基于PHP)，在某宝上买了基础版的主机，部">
+    <meta property="og:updated_time" content="2016-01-17T14:38:00.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hexo教程GitCafe部署搭建博客 | 风之痕">
+    <meta name="twitter:description" content="GitCafe下使用Hexo搭建博客,一直以来都是喜欢在CSDN、cnblogs上分享一些自己的想法，渐渐的发觉其实这些平台有时间并不能满足自己的某些需求。对于从事技术行业以来，有自己的博客相信意义就不再多说了。不说好多大牛们都有自己的站点，作为一个大牛路上的前行者，心动不如行动，动起手来...一开始的时间选择了wordexpress、EMlog这些模版(基于PHP)，在某宝上买了基础版的主机，部">
+    <meta name="author" content="关于前端与iOS、React,ReactNative、黑客与画家 | 如画，Web &amp; Mobile Lover，iOS Engineer,移动端 | 这里是 @风之痕 的个人博客，与你一起发现更大的世界。">
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+    <meta name="baidu-site-verification" content="dDShp3YniR" />
+</head>
+<body>
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+    
+<header class="panel-cover panel-cover--collapsed">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+          <a href="/" title="link to homepage for 风之痕"><img src="/images/avatar.png" width="80" alt="风之痕 logo" class="panel-cover__logo logo" /></a>
+          <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">风之痕</a></h1>
+          <span class="panel-cover__subtitle"> 上善若水 人淡如菊... </span>
+          <hr class="panel-cover__divider" />
+          <p class="panel-cover__description">hello 大家好，我是sunny，目前就职于360buy...</p>
+          <hr class="panel-cover__divider panel-cover__divider--secondary" />
+          <p class="panel-cover__description">
+            <a href="http://sunnycn.gitcafe.io" target="_blank">sunnycn.gitcafe.io - 我维护的 iOS 使用技巧分享网站，每周三更新，欢迎访问..</a>
+          </p>
+          <div class="navigation-wrapper">
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                  <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+                  <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+                  <li class="navigation__item"><a href="/notes" title="" class="">随笔</a></li>
+                  <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+                </ul>
+            </nav>
+            <div>
+                <nav class="cover-navigation navigation--social">
+                    <ul class="navigation">
+                        <li class="navigation__item">
+                        <a href="http://weibo.com/sunnycn" title="Huno on weibo">
+                        <i class='icon icon-social-weibo'></i>
+                        <span class="label">weibo</span>
+                        </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="https://github.com/sunnyvalue" title="Huno on GitHub">
+                            <i class='icon icon-social-github'></i>
+                            <span class="label">GitHub</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="ccguo" title="Huno on twitter">
+                            <i class='icon icon-social-twitter'></i>
+                            <span class="label">twitter</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="ccguo" title="Huno on stack-overflow">
+                            <i class='icon icon-social-stack-overflow'></i>
+                            <span class="label">stack-overflow</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="389878212@qq.com" title="Huno on mail">
+                            <i class='icon icon-mail'></i>
+                            <span class="label">mail</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry"> 
+<article class="post-container post-container--single">
+  <header class="post-header">
+    <h1 class="post-title">Hexo教程GitCafe部署搭建博客</h1>
+    
+    <div class="post-meta">
+      <time datetime="2016-01-10" class="post-meta__date date">2016-01-10</time>
+      <span class="post-meta__tags tags">
+           &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/GitCafe下搭建博客/">GitCafe下搭建博客</a>, <a class="tags-link" href="/tags/Hexo教程/">Hexo教程</a>, <a class="tags-link" href="/tags/iOS/">iOS</a>, <a class="tags-link" href="/tags/电子商务/">电子商务</a>
+            </font>
+      </span>
+    </div>
+    
+  </header>
+  <section id="post-content" class="article-content post">
+    <h2 id="u4E00_u3001_u7EEA_u8A00"><a href="#u4E00_u3001_u7EEA_u8A00" class="headerlink" title="一、绪言"></a>一、绪言</h2><p>一直以来都是喜欢在CSDN、cnblogs上分享一些自己的想法，渐渐的发觉其实这些平台有时间并不能满足自己的某些需求。对于从事技术行业以来，有自己的博客相信意义就不再多说了。不说好多大牛们都有自己的站点，作为一个大牛路上的前行者，心动不如行动，动起手来…</p>
+<p>一开始的时间选择了wordexpress、EMlog这些模版(基于PHP)，在某宝上买了基础版的主机，部署后总觉得怪怪的。说真的选用第三方的虚拟主机，出了每年要对应的开销外，经常到了期需要从心付费，如果忘记了可能会被释放掉。平时做完代码每次需要部署都的必须上传挺麻烦的。更让人受不了的是公司的网络禁止一切FTP上传工具。</p>
+<p>后来想到了阿里云，基础版的云主机一年大概500大洋的样子，配置足够用了(如果想用学生证买的话一年100大洋)，中间曾经买过一小段的时间，在自己的机器上部署了node、mysql、nginx，同时部署了git，每次做完修改直接push到远端的目录。这样坚持了一段时间，慢慢的又不习惯了，可能好长时间不远程连接一次。并且云主机也有到期后忘记续费被释放的危险，随着在主机上放的东西越来越多，越发的觉得不是那么安全。</p>
+<p>偶然的事件看到了Jekyll这个东西，可以在本地进行开发然后部署在在Github上。Jekyll也是一个基于node的框架，他的优势在于可以在本地完成自己的开发，然后直接push到Github，Github自身是支持Jekyll部署的，只需要设置好自己的page页面就可以了。但是问题又来了，生活在天朝一切总是那么不尽人意，Github这个东西大多时间访问速率极慢，甚至有时间经常打不开。更可杯具的是，Github自身屏蔽了百度爬虫的抓取，对于生活在天朝不能google的人来说这的确是一场的最大的无奈了。</p>
+<p>GitCafe是个好东西啊，这个东西就是中国版的Github，无论是访问还是爬虫抓取都是不受任何限制的。废话少说 直接迁移。就这样blog从此之后就迁移到了新家。之所以没有选择Jekyll而选择Hexo,Hexo 可以暂时理解为Jekyll＋,Hexo 是一个台湾的大学生在Jekyll的基础上脱胎而来的，我本人更喜欢后者。</p>
+<p>相对前者而言部署时间包过大，每次clone、上传都需要下载很大的一个工程包。Hexo就不同了，他的配置是在本地的，需要发布的时间配置好发布地址，hexo会自动将本地的网页全部生成对应的静态网页，之后将生成的网页存储在public文件夹下，最终hexo只会讲public文件下的内容上传到对应的部署地址，并且public文件下的内容是由deploy_git来管理的，换句话说就是每次修改发布都只是上传发生改变的文件，这一点本人特别喜欢。</p>
+<h2 id="u4E8C_u3001Hexo_u73AF_u5883_u642D_u5EFA"><a href="#u4E8C_u3001Hexo_u73AF_u5883_u642D_u5EFA" class="headerlink" title="二、Hexo环境搭建"></a>二、Hexo环境搭建</h2><p>hexo 是一个基于node的框架工具，首先我们需要在本地安装nodejs的环境，还需要安装git.有了node的环境我可以在本地进行hexo的开发调试，然后通过git直接发布并且部署到Github上。</p>
+<h3 id="Node__u5B89_u88C5"><a href="#Node__u5B89_u88C5" class="headerlink" title="Node 安装"></a>Node 安装</h3><p>到Node.js<a href="https://nodejs.org/" target="_blank" rel="external">官网</a>下载相应平台的最新版本，一路安装即可。我用的是node-v4.2.4.pkg(Mac平台),下载以后直接安装就可以了.安装好以后,打开Terminal 输入: node -v</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ccguodeMacBook-<span class="constant">Pro</span><span class="symbol">:sunny-blog</span> ccguo<span class="variable">$ </span>node -v</span><br><span class="line">v5.<span class="number">3.0</span></span><br><span class="line">ccguodeMacBook-<span class="constant">Pro</span><span class="symbol">:sunny-blog</span> ccguo<span class="variable">$ </span>npm -v</span><br><span class="line"><span class="number">3.3</span>.<span class="number">12</span></span><br><span class="line">ccguodeMacBook-<span class="constant">Pro</span><span class="symbol">:sunny-blog</span> ccguo$</span><br></pre></td></tr></table></figure>
+<p>出现版本号以后，node安装成功。</p>
+<p>Mac平台下面的git此处就略过了，不在一一解释了(mac平台自带的git工具)；</p>
+<p>关于window平台Git的客户端很多，我用的是<a href="http://code.google.com/p/msysgit" target="_blank" rel="external">msysgit</a>，喜欢用绿色版本<a href="http://code.google.com/p/msysgit/downloads/detail?name=PortableGit-1.8.4-preview20130916.7z" target="_blank" rel="external">Portable application for official Git for Windows 1.8.4</a>，下载下来设置一下环境变量即可，Git_HOME，%Git_HOME%\bin之类的，不多说。</p>
+<p> 安装sublime工具，Mac下面我个人还是比较喜欢<a href="http://www.sublimetext.com" target="_blank" rel="external">sublime3</a>, 小巧轻便不说，插件一大堆，想怎么用怎么用就。在这里仅仅作为一个文本编辑器使用，支持各种编程语言和文件格式，当然也支持Markdown语法，实在是个不可多得的练码奇才。</p>
+<h3 id="hexo_u5B89_u88C5"><a href="#hexo_u5B89_u88C5" class="headerlink" title="hexo安装"></a>hexo安装</h3><p>node 安装好以后，我们看到npm也被安装好了，npm可以暂时理解成nodejs的一个包管理工具，<br>有了它我们可以通过它来将我们需要使用的node包安装到本地(例如hexo就是一个node的包)，如下<br>使用npm 安装hexo，打开终端输入: npm install -g hexo</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span></span><br></pre></td></tr></table></figure>
+<p>紧接着终端会进入下载模式，一大堆进度下载完毕以后，hexo安装成功，在终端输入: hexo -v</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ccguodeMacBook-Pro:sunny-blog ccguo$ hexo -v</span><br><span class="line">hexo: <span class="number">3.1</span><span class="number">.1</span></span><br><span class="line">os: Darwin <span class="number">14.5</span><span class="number">.0</span> darwin x64</span><br><span class="line">http_parser: <span class="number">2.6</span><span class="number">.0</span></span><br><span class="line">node: <span class="number">5.3</span><span class="number">.0</span></span><br><span class="line">v8: <span class="number">4.6</span><span class="number">.85</span><span class="number">.31</span></span><br><span class="line">uv: <span class="number">1.8</span><span class="number">.0</span></span><br><span class="line">zlib: <span class="number">1.2</span><span class="number">.8</span></span><br><span class="line">ares: <span class="number">1.10</span><span class="number">.1</span>-DEV</span><br><span class="line">icu: <span class="number">56.1</span></span><br><span class="line">modules: <span class="number">47</span></span><br><span class="line">openssl: <span class="number">1.0</span><span class="number">.2</span>e</span><br><span class="line">ccguodeMacBook-Pro:sunny-blog ccguo$</span><br></pre></td></tr></table></figure>
+<p>OK ,此时hexo已经成功安装，到此本地开发环境部署安装完毕，接下来进行开发…</p>
+<h2 id="u4E09_u3001Hexo_u5F00_u53D1"><a href="#u4E09_u3001Hexo_u5F00_u53D1" class="headerlink" title="三、Hexo开发"></a>三、Hexo开发</h2><p>hexo只是一个node下的框架，通过它我们可以创建自己的应用程序，然后运行自己的程序。hexo工程的源码也是基于node的，我们可以对此进行二次开发，根据自己的需求，可以改变博客的主题，也可以修改node的源码。</p>
+<p>整体来说hexo就是一个可以帮助你搭建一个不需要数据库的网站，我们可以随心所欲的修改他的源码，hexo是支持markdown 的，我们所有的内容都是以.md文件的形式存储在工程里面。hexo发布工程的时间，hexo会将所有的内容打包成一个对应的静态html页面，然后生成到一个public的文件下，之后将这个public文件发布到线上。</p>
+<h3 id="hexo__u521B_u5EFA_u5DE5_u7A0B"><a href="#hexo__u521B_u5EFA_u5DE5_u7A0B" class="headerlink" title="hexo 创建工程"></a>hexo 创建工程</h3><p>cd到当前硬盘的某个目录下，在终端中输入: hexo init myblog</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> init myblog</span><br></pre></td></tr></table></figure>
+<p>成初始化成功以后，我们可以在对应的文件夹下看到一恶果工程目录:</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> <span class="constant">Desktop</span></span><br><span class="line"></span>   -<span class="ruby"> myblog</span><br><span class="line"></span>       -<span class="ruby"> _config.yml</span><br><span class="line"></span>       -<span class="ruby"> package.json</span><br><span class="line"></span>       -<span class="ruby"> scaffolds</span><br><span class="line"></span>       -<span class="ruby"> source</span><br><span class="line"></span>       -<span class="ruby"> theme</span></span><br></pre></td></tr></table></figure>
+<p>cd到myblog目录，在该目录下面输入指令: npm install</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//安装依赖包</span></span><br><span class="line">npm install</span><br><span class="line"><span class="comment">//安装成功以后发现myblog下面多出了几个文件</span></span><br><span class="line">-<span class="ruby"> myblog</span><br><span class="line"></span>    -<span class="ruby"> node_modules</span><br><span class="line"></span>    -<span class="ruby"> db.json</span></span><br></pre></td></tr></table></figure>
+<p>此时，如果没有异常，我们的blog工程就已经创建完毕了，在终端输入 : hexo s<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ccguodeMacBook-<span class="keyword">Pro</span>:myblog ccguo$ hexo <span class="literal">s</span></span><br><span class="line">[<span class="keyword">Error</span>: Module <span class="keyword">version</span> mismatch. Expected 47, got 14.]</span><br><span class="line">INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+C to stop.</span></span><br></pre></td></tr></table></figure></p>
+<p>此时在浏览器中输入 <a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> ，就能看到我们的博客了.</p>
+<p>在终端中输入 hexo g z 则会进行博客的生成工作，工程目录下会多出一个public的文件夹，里面是整个博客网站的所有静态页面。<br>在终端中输入hexo d 则可以进行blog的发布，具体发布流程如下…</p>
+<h3 id="hexo_u4E8C_u6B21_u5F00_u53D1"><a href="#hexo_u4E8C_u6B21_u5F00_u53D1" class="headerlink" title="hexo二次开发"></a>hexo二次开发</h3><p>工程创建完毕以后，通过hexo s已经将博客运行起来了，相信看到这一面心里面已经感受到hexo的魅力了。<br>将myblog文件夹拖进sublime，此时我们看到如下的工程目录：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> myblog</span><br><span class="line"></span>    -<span class="ruby"> .deploy_git    /<span class="regexp">/git发布管理目录，每次发布新的内容由git进行版本管理</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> node_modules   /</span><span class="regexp">/node 所有的依赖包</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> public         /</span><span class="regexp">/发布目录</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> scaffolds</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> source         /</span><span class="regexp">/博文内容文件目录</span><br><span class="line"></span></span>        -<span class="ruby"><span class="regexp"> _post</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> themes         /</span><span class="regexp">/主题文件目录</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> .gitignore     </span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> _config.yml    /</span><span class="regexp">/博客的配置文件</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> db.json</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> npm-debug.log  /</span><span class="regexp">/日志文件</span><br><span class="line"></span></span>    -<span class="ruby"><span class="regexp"> package.json   /</span><span class="regexp">/包依赖文件</span></span></span><br></pre></td></tr></table></figure></p>
+<p>到了这一步，我们需要做的首先是如何使用hexo,如何自己手动来完成并创建自己的博文。一般情况下，无论是我们创建自己的博文，还是针对hexo进行二次开发，我们需要关心的目录只有source目录和theme目录，source-&gt;_post目录下面是存放.md文件的，我们的每一篇博客都是以markdown文件的形式存放在_post目录下的，之后hexo s发布的时间，hexo会将所有的.md文件都生成一个静态html页面，之后发布到public目录，最终hexo d 发布到目标地址去。</p>
+<h3 id="u521B_u5EFA_u7B2C_u4E00_u7BC7_u535A_u6587"><a href="#u521B_u5EFA_u7B2C_u4E00_u7BC7_u535A_u6587" class="headerlink" title="创建第一篇博文"></a>创建第一篇博文</h3><p>在source -&gt; _post目录下，我们创建一个新的文件hello-world.md，然后编辑文件内容如下:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello World , This is my Hexo Blog Sunnycn..</span><br><span class="line">Welcome to [<span class="link_label">Hexo</span>](<span class="link_url">http://hexo.io/</span>)! This is your very first post. Check [<span class="link_label">documentation</span>](<span class="link_url">http://hexo.io/docs/</span>) for more info. If you get any problems when using Hexo, you can find the answer in [<span class="link_label">troubleshooting</span>](<span class="link_url">http://hexo.io/docs/troubleshooting.html</span>) or you can ask me on [<span class="link_label">GitHub</span>](<span class="link_url">https://github.com/hexojs/hexo/issues</span>).</span><br></pre></td></tr></table></figure></p>
+<p>编辑完成后保存，在终端下从新执行hexo s,然后在浏览器中访问：<a href="http://0.0.0.0:4000/，就能看到刚才我们创建的博客了，hexo就是折磨简单" target="_blank" rel="external">http://0.0.0.0:4000/，就能看到刚才我们创建的博客了，hexo就是折磨简单</a>…</p>
+<h3 id="u66FF_u6362_u81EA_u5DF1_u559C_u6B22_u7684_u4E3B_u9898"><a href="#u66FF_u6362_u81EA_u5DF1_u559C_u6B22_u7684_u4E3B_u9898" class="headerlink" title="替换自己喜欢的主题"></a>替换自己喜欢的主题</h3><p>theme文件夹，主要是主题文件，你可以去Github上挑选自己的喜欢的主题，然后放进theme目录，之后修改配置文件_config.yml 的theme选项，就能看到对应的效果了。</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Extensions</span></span><br><span class="line"><span class="preprocessor">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"><span class="preprocessor">## Themes: http://hexo.io/themes/</span></span><br><span class="line">theme: huno <span class="comment">//使用主题</span></span><br></pre></td></tr></table></figure>
+<h4 id="u53D1_u5E03_u535A_u5BA2"><a href="#u53D1_u5E03_u535A_u5BA2" class="headerlink" title="发布博客"></a>发布博客</h4><p>hexo发布博客，主要是将本地已经开发好，并且已经生成的静态网页发布到一个对应的远端。例如Github，我们可以将这一系列静态文件发布到Github的某个responsity下，之后我们就可以通过一个链接去真正的访问我们的博客。<br>首先，我们需要在自己的Github下面创建一个和用户名一模一样的一个工程(<a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">具体教程</a>), 创建完毕，验证ssh公钥以后，我们需要的是修改博客的本地配置文件，如下：</p>
+<p>修改配置文件 _config.yml<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: http://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line">  <span class="symbol">type:</span> git  /<span class="regexp">/hexo 3.0以后此处填写git</span><br><span class="line">  repository: https:/</span><span class="regexp">/gitcafe.com/sunnycn</span><span class="regexp">/sunnycn.git  /</span><span class="regexp">/刚才创建的与Github账户名相同的工程的远端地址</span><br><span class="line">  branch: master /</span><span class="regexp">/gitcafe-pages  /</span><span class="regexp">/所在的分支</span></span><br></pre></td></tr></table></figure></p>
+<p>在博客的配置文件中，我们配置好要发布到远端的路径、版本工具类型、分支名，然后在终端下依次执行<br>hexo g , hexo d<br>之后看到如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ccguodeMacBook-Pro:sunny-blog ccguo$ hexo d</span><br><span class="line">[Error: Module version mismatch. Expected <span class="number">47</span>, got <span class="number">14.</span>]</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy folder...</span><br><span class="line">INFO  Copying files from <span class="keyword">public</span> folder...</span><br><span class="line">[master a06e618] Site updated: <span class="number">2016</span>-<span class="number">01</span>-<span class="number">17</span> <span class="number">22</span>:<span class="number">35</span>:<span class="number">19</span></span><br><span class="line"> <span class="number">44</span> files changed, <span class="number">752</span> insertions(+), <span class="number">174</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> <span class="number">2016</span>/<span class="number">01</span>/<span class="number">17</span>/protocol_mvvm/index.html</span><br><span class="line"> rewrite fonts/foundation-icons/foundation-icons.woff (<span class="number">98</span>%)</span><br><span class="line"> create mode <span class="number">100644</span> images/<span class="number">2015</span>-<span class="number">12</span>-<span class="number">16</span>/hexo/hexo.png</span><br><span class="line">^CINFO  Catch you later</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure></p>
+<p> OK 博客发布成功，之后在浏览器中输入Github下的对应的地址就能访问我们的博客了…<br> 至此，hexo的教程完毕….</p>
+
+  </section>
+  <div class="read-more">
+   
+   <div class="read-more-item read-more-item-left">
+    
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="/2016/01/12/qianduan/" title="link to " class="read-more-link-title"> 做一个不可替代的架构师
+       </a></h2>
+       <p class="excerpt">古人说——“人无远虑，必有近忧”。你平时有这么多空闲时间，为何不努力提升一下自己的水平呢。不去认真阅读一下大师们的框架，不自己写一个框架。记得当初我在博客宣传我的框架，被某个嫉妒的人骂个狗血喷头，两年过去，他消声匿迹，而我，从一个公司的核心前端变为另一个公司的核心前端，现在是去哪儿网的前端架构师。因此要相信自己!不要怕这怕那，有努 力就有回报! &hellip;</p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          2016-01-12
+          </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="/2016/01/12/qianduan/">继续阅读</a>
+       </div>
+    
+   </div>
+   
+   <div class="read-more-item read-more-item-right">
+    
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="/2016/01/02/abouts/" title="link to ">大家好，我是sunny，博客迁移至Github ，多多关照</a>
+       </h2>
+       <p class="excerpt">大家好，我是sunnycn,博客新搬家，请大家多多关照。在经历了种种以后，博客最终还是尘埃落定了，展望这么多年，从csdn到cnblogs,再到简书最终到hexo。一路走来，真的感慨颇多。说真的，作为一个开发人员，我一度有写博客的习惯，中间也曾有间断。如今采用了hexo,真心有了家的感觉，以后的时间&hellip;
+       </p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          2016-01-02 </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="/2016/01/02/abouts/">继续阅读</a>
+       </div>
+    
+   </div>
+   
+</div>
+
+  
+<section class="post-comments">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'http://sunnycn.gitcafe.io'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'sunnycn21'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//sunnycn21.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the 
+<a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</section>
+
+
+
+
+
+  
+</article>
+        <footer class="footer">
+        <div>
+            <span class="footer__copyright">
+    	       本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>
+            </span>
+            <span class="footer__copyright">
+    	       基于 <a href="https://hexo.io/">Hexo</a> 搭建，感谢 <a href="https://www.github.com/</a> 为本站提供稳定的服务
+            </span>
+            <span class="footer__copyright">
+    	       &copy; 2016. | - 本站由 <a href="https://github.com/sunnyvalue/">@sunnyvalue</a> 创建，采用 <a href="https://github.com/sunnyvalue/sunny-blog.git">huno</a> 作为主题
+            </span>
+            本页点击 
+            <span id="busuanzi_value_page_pv"></span> 次|;本站总点击 <span id="busuanzi_value_site_pv"></span> 次|;您是第 <span id="busuanzi_value_site_uv">
+            </span> 位访客
+	        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	        </script>
+            <span><a href="/sitemap.xml">Google网站地图</a></span>
+  	        <span><a href="/baidusitemap.xml">百度网站地图</a></span>
+        </div>
+  	 <script>
+		(function(){
+    		var bp = document.createElement('script');
+    		bp.src = '//push.zhanzhang.baidu.com/push.js';
+    		var s = document.getElementsByTagName("script")[0];
+    		s.parentNode.insertBefore(bp, s);
+		})();
+	 </script>
+        </footer>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script> 
+    
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "//hm.baidu.com/hm.js?bff0d31b7343635ef2daea623ff5ec14";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+     
+    <!--kill ie6 --><!--[if IE 6]><script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script><![endif]-->
+</body>
+</html>

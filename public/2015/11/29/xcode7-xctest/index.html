@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+    <title>
+    Xcode 7智能测试化工具XCTest学习 | 风之痕 | 风之痕的博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量 谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Xcode 7智能测试化工具XCTest学习 | 风之痕">
+    <meta property="og:url" content="http://sunnycn.gitcafe.io/2015/11/29/xcode7-xctest/index.html">
+    <meta property="og:site_name" content="风之痕">
+    <meta property="og:description" content="单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量 谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-createpro.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-selectschem.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-editschem.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-testsucc.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-testlog.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-coverage.png">
+    <meta property="og:image" content="http://ccguo.gitcafe.io/blog/2015-12-16/post-xctest-case/xctest-case-coverageItem.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-trackDao.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-UItestIB.jpeg">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-createUITestSelectItem.jpeg">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-createUITestPro.jpeg">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-uitestStart.jpeg">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-uitestcode.jpeg">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/end.gif">
+    <meta property="og:updated_time" content="2016-01-17T09:31:24.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Xcode 7智能测试化工具XCTest学习 | 风之痕">
+    <meta name="twitter:description" content="单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量 谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正">
+    <meta name="author" content="关于前端与iOS、React,ReactNative、黑客与画家 | 如画，Web &amp; Mobile Lover，iOS Engineer,移动端 | 这里是 @风之痕 的个人博客，与你一起发现更大的世界。">
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+    <meta name="baidu-site-verification" content="dDShp3YniR" />
+</head>
+<body>
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+    
+<header class="panel-cover panel-cover--collapsed">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+          <a href="/" title="link to homepage for 风之痕"><img src="/images/avatar.png" width="80" alt="风之痕 logo" class="panel-cover__logo logo" /></a>
+          <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">风之痕</a></h1>
+          <span class="panel-cover__subtitle"> 上善若水 人淡如菊... </span>
+          <hr class="panel-cover__divider" />
+          <p class="panel-cover__description">hello 大家好，我是sunny，目前就职于360buy...</p>
+          <hr class="panel-cover__divider panel-cover__divider--secondary" />
+          <p class="panel-cover__description">
+            <a href="http://sunnycn.gitcafe.io" target="_blank">sunnycn.gitcafe.io - 我维护的 iOS 使用技巧分享网站，每周三更新，欢迎访问..</a>
+          </p>
+          <div class="navigation-wrapper">
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                  <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+                  <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+                  <li class="navigation__item"><a href="/notes" title="" class="">随笔</a></li>
+                  <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+                </ul>
+            </nav>
+            <div>
+                <nav class="cover-navigation navigation--social">
+                    <ul class="navigation">
+                        <li class="navigation__item">
+                        <a href="http://weibo.com/sunnycn" title="Huno on weibo">
+                        <i class='icon icon-social-weibo'></i>
+                        <span class="label">weibo</span>
+                        </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="https://github.com/sunnyvalue" title="Huno on GitHub">
+                            <i class='icon icon-social-github'></i>
+                            <span class="label">GitHub</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="ccguo" title="Huno on twitter">
+                            <i class='icon icon-social-twitter'></i>
+                            <span class="label">twitter</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="ccguo" title="Huno on stack-overflow">
+                            <i class='icon icon-social-stack-overflow'></i>
+                            <span class="label">stack-overflow</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="389878212@qq.com" title="Huno on mail">
+                            <i class='icon icon-mail'></i>
+                            <span class="label">mail</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry"> 
+<article class="post-container post-container--single">
+  <header class="post-header">
+    <h1 class="post-title">Xcode 7智能测试化工具XCTest学习</h1>
+    
+    <div class="post-meta">
+      <time datetime="2015-11-29" class="post-meta__date date">2015-11-29</time>
+      <span class="post-meta__tags tags">
+           &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/XCTestCase/">XCTestCase</a>, <a class="tags-link" href="/tags/iOS/">iOS</a>, <a class="tags-link" href="/tags/电子商务/">电子商务</a>
+            </font>
+      </span>
+    </div>
+    
+  </header>
+  <section id="post-content" class="article-content post">
+    <h2 id="1-__u5355_u5143_u6D4B_u8BD5_u7B80_u4ECB"><a href="#1-__u5355_u5143_u6D4B_u8BD5_u7B80_u4ECB" class="headerlink" title="1. 单元测试简介"></a>1. 单元测试简介</h2><h4 id="1-1_u3001Unit_Testing_3A__u5355_u5143_u6D4B_u8BD5"><a href="#1-1_u3001Unit_Testing_3A__u5355_u5143_u6D4B_u8BD5" class="headerlink" title="1.1、Unit Testing: 单元测试"></a>1.1、Unit Testing: 单元测试</h4><p> 测试这个词很容易理解，那么什么是单元(Unit)呢？一个单元指的就是应用程序中可以测试的最小单元。一组源代码可以测试，一般要求有明确的输入与输出。因此一般来说源代码中明确的包含输入输出的每一个方法被认为一个测试的单元(一个case)。注意，这里的输出并不局限于方法的返回值对输入参数的改变，也包括方法在执行过程中改变的任何数据。</p>
+<p>单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量。</p>
+<h4 id="1-2_u3001_u5355_u5143_u6D4B_u8BD5_u7684_u76EE_u7684"><a href="#1-2_u3001_u5355_u5143_u6D4B_u8BD5_u7684_u76EE_u7684" class="headerlink" title="1.2、单元测试的目的"></a>1.2、单元测试的目的</h4><p>单元测试的目的是将程序中所有的源代码，隔离成最小的可测试单元，以确保每个单元的正确性，如果每个单元都能保证正确，就能保证应用程序整体相当程度的正确性。另一方面测试脚本本身就是被测试代码的实际使用代码，这对于开发者理解被测试单元的使用是用帮助的。</p>
+<p>测试是分黑盒测试和白盒测试(概念此处不在解释)，单元测试其实就是一种白盒测试，开发者对现有已经实现的模块自己写对应测试脚本进行测试，这中间还包含测试用例的设计。相对来说还是由开发者自己来完成白盒测试，然后在交由测试团队进行黑盒测试，这样也更加有助于提升测试流程的完整性，最终提高产品的质量。</p>
+<p> 单元测试的内容：</p>
+<blockquote>
+<ul>
+<li>单元测试的测试目的</li>
+<li>模块接口测试</li>
+<li>局部数据结构测试</li>
+<li>路径测试</li>
+<li>错误处理测试</li>
+<li>边界测试</li>
+</ul>
+</blockquote>
+<p>在现有的开发工作中，我们一般都会忽略掉单元测试的重要性，功能开发完成以后开发者拿到现有的测试用例，直接针对每条用例进行手工的测试，测试通过就进行提测，之后测试人员还是重复手工测试的流程、数据的mock、专项测试等，这样以来白盒测试的流程有时间份量会变的很低，开发人员不知道自己模块代码的覆盖路问题，更多的时间可能某些代码一直到到上线都从来没有跑过，以至于到了真实环境下会产生一些意想不到的问题，这样以来风险极高，整体来说单元测试还是至关重要的。</p>
+<p>下面介绍一下Xcode7 中现有的一些测试工具：</p>
+<h2 id="2-_Xcode7_u4E2D_u7684UnitTest"><a href="#2-_Xcode7_u4E2D_u7684UnitTest" class="headerlink" title="2. Xcode7中的UnitTest"></a>2. Xcode7中的UnitTest</h2><h4 id="2-1_u3001XCTest_u4ECB_u7ECD"><a href="#2-1_u3001XCTest_u4ECB_u7ECD" class="headerlink" title="2.1、XCTest介绍"></a>2.1、XCTest介绍</h4><p>本文主要基本Xcode7来讲解，至于xcode 新功能的历史各位自己去趴去，此处只讲解如何使用，废话少说，下面直接入正题。</p>
+<p>最新的Xcode7中是包含了UITest  UnitTest工具的，这个可以在你创建工程的时间勾选对应的选项，也可以直接通过addTarget的形式来完成，</p>
+<h5 id="2-1_u3001XCTestCase_u7B80_u4ECB"><a href="#2-1_u3001XCTestCase_u7B80_u4ECB" class="headerlink" title="2.1、XCTestCase简介"></a>2.1、XCTestCase简介</h5><p>如果项目创建的时间勾选了UnitTest(从名字上看就是Apple提供的官方的一个单元测试工具) ，我们可以看到工程里面是多了一个目录，默认多了一个类， 如图：</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-createpro.png" alt="选择XCTest"></p>
+<p>XCTest时Apple官方提供一个测试工具，一个内置的测试框架，从工程里面可以看到，一个“应用名称”的group，我们直接可以使用commond+R 来远行，一个测试的target我们可以使用commond+U来远行测试target,在测试target的目录下会有一个默认的“应用名称”＋Test的类，这个类只有.m没有.h,继承于XCTestCase，使用commond+U即可运行。</p>
+<p>默认测试类里面有以下方法：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法在XCTestCase的测试方法调用之前调用，可以在测试之前创建在test case方法中需要用到的一些对象等</span></span><br><span class="line">- (<span class="keyword">void</span>)setUp ;</span><br><span class="line"><span class="comment">//当测试全部结束之后调用tearDown方法，法则在全部的test case执行结束之后清理测试现场，释放资源删除不用的对象等</span></span><br><span class="line">- (<span class="keyword">void</span>)tearDown ;</span><br><span class="line"><span class="comment">//测试代码执行性能</span></span><br><span class="line">- (<span class="keyword">void</span>)testPerformanceExample</span><br></pre></td></tr></table></figure>
+<h4 id="2-2_u3001XCTestCase_u4F7F_u7528"><a href="#2-2_u3001XCTestCase_u4F7F_u7528" class="headerlink" title="2.2、XCTestCase使用"></a>2.2、XCTestCase使用</h4><p>XCTestCase的初始化不是用户控制的,开发者无需手动针对XCTestCase的subclass进行 alloc 、init或者调用静态方法初始化的操作，针对一个功能块的单元测试(针对某个class)，只需要单独给为这个类创建一个继承于XCTestCase，在这个文件内实现上述基本函数以后(一半系统会默认创建这三个函数)，其实的逻辑只需要开发者自行定义以“test”开头的函数，然后在内部实现自己针对某个函数、返回数值结果、操作等的测试脚本即可，commond+U执行的时间，单元测试会自动执行这些test打头的函数，当函数头上出现蓝色的标记则表明测试通过，否则直接报红色错误。</p>
+<p>XCTest测试范畴：</p>
+<blockquote>
+<ul>
+<li>基本逻辑测试处理测试</li>
+<li>异步加载数据测试</li>
+<li>数据mock测试</li>
+</ul>
+</blockquote>
+<h5 id="XCTest_u5E38_u7528_u57FA_u672C_u6D4B_u8BD5_u5DE5_u5177"><a href="#XCTest_u5E38_u7528_u57FA_u672C_u6D4B_u8BD5_u5DE5_u5177" class="headerlink" title="XCTest常用基本测试工具"></a>XCTest常用基本测试工具</h5><p>XCTest常用的一些判断工具都是以XCT开头的，如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//断言,最基本的测试，如果expression为true则通过，否则打印后面格式化字符串</span></span><br><span class="line"><span class="function"><span class="title">XCTAssert</span><span class="params">(expression, format...)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Bool测试:  </span></span><br><span class="line"><span class="function"><span class="title">XCTAssertTrue</span><span class="params">(expression, format...)</span></span></span><br><span class="line"><span class="function"><span class="title">XCTAssertFalse</span><span class="params">(expression, format...)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//相等测试</span></span><br><span class="line"><span class="function"><span class="title">XCTAssertEqual</span><span class="params">(expression1, expression2, format...)</span></span></span><br><span class="line"><span class="function"><span class="title">XCTAssertNotEqual</span><span class="params">(expression1, expression2, format...)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//double float 对比数据测试使用</span></span><br><span class="line"><span class="function"><span class="title">XCTAssertEqualWithAccuracy</span><span class="params">(expression1, expression2, accuracy, format...)</span></span></span><br><span class="line"><span class="function"><span class="title">XCTAssertNotEqualWithAccuracy</span><span class="params">(expression1, expression2, accuracy, format...)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Nil测试，XCTAssert[Not]Nil断言判断给定的表达式值是否为nil</span></span><br><span class="line"><span class="function"><span class="title">XCTAssertNil</span><span class="params">(expression, format...)</span></span></span><br><span class="line"><span class="function"><span class="title">XCTAssertNotNil</span><span class="params">(expression, format...)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//失败断言     </span></span><br><span class="line"><span class="function"><span class="title">XCTFail</span><span class="params">(format...)</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="XCTest_u5F02_u6B65_u6D4B_u8BD5"><a href="#XCTest_u5F02_u6B65_u6D4B_u8BD5" class="headerlink" title="XCTest异步测试"></a>XCTest异步测试</h5><p>Xcode单元测试中加入的最令人兴奋的功能也许就是类XCTestExpression类带入的异步测试了。现在测试可以等待指定长度的时间，一直到某些条件符合的时候在开始测试。而不用再写很多的GCD代码控制。</p>
+<p>要使用异步测试，首先用方法expectationWithDescription创建一个expection</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let expectation = <span class="function"><span class="title">expectationWithDescription</span><span class="params">(<span class="string">"..."</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>之后，在方法的最后添加方法waitForExpectationsWithTimeout，指定等待超时的时间和指定时间内条件无法满足时执行的closure。</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">waitForExpectationsWithTimeout(<span class="number">10</span>) &#123; (<span class="keyword">error</span>) <span class="keyword">in</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>剩下的就是在异步测试剩下的回调函数中告诉expectation条件已经满足。</p>
+<p>expectation.fulfill()<br>如果在测试中有多个expectation，则每个expectation都必须fulfill，否则测试不通过。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="type">void</span>)testFetchRequestWithMockedManagedObjectContext</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">MockNSManagedObjectContext</span> *mockContext = [[<span class="type">MockNSManagedObjectContext</span> alloc] initWithConcurrencyType:<span class="number">0x00</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> mockContext = <span class="type">MockNSManagedObjectContext</span>()</span><br><span class="line">    <span class="type">NSFetchRequest</span> * fetchRequest = [[<span class="type">NSFetchRequest</span> alloc] initWithEntityName:@<span class="string">"User"</span>];</span><br><span class="line">    <span class="keyword">let</span> fetchRequest = <span class="type">NSFetchRequest</span>(entityName: <span class="string">"User"</span>)</span><br><span class="line">    fetchRequest.predicate = [<span class="type">NSPredicate</span> predicateWithFormat:@<span class="string">"email ENDSWITH[cd] apple.com"</span>];</span><br><span class="line">    fetchRequest.predicate = <span class="type">NSPredicate</span>(format: <span class="string">"email ENDSWITH[cd] %@"</span>, <span class="string">"apple.com"</span>)</span><br><span class="line">    fetchRequest.resultType = <span class="type">NSDictionaryResultType</span>;</span><br><span class="line">    fetchRequest.resultType = <span class="type">NSFetchRequestResultType</span>.<span class="type">DictionaryResultType</span></span><br><span class="line">    <span class="keyword">var</span> error: <span class="type">NSError</span>?</span><br><span class="line">    <span class="type">NSError</span> *error = <span class="keyword">nil</span>;</span><br><span class="line">    <span class="type">NSArray</span> *results = [mockContext executeFetchRequest:fetchRequest error:&amp;error];</span><br><span class="line">    <span class="keyword">let</span> results = mockContext.executeFetchRequest(fetchRequest, error: &amp;error)</span><br><span class="line">    <span class="type">XCTAssertNil</span>(error, @<span class="string">"error应该为nil"</span>);</span><br><span class="line">    <span class="type">XCTAssertEqual</span>(results.count, <span class="number">2</span>, @<span class="string">"fetch request应该只返回一个结构"</span>);</span><br><span class="line">    <span class="type">NSDictionary</span> * <span class="literal">result</span> = results[<span class="number">0</span>];</span><br><span class="line">    <span class="type">XCTAssertEqual</span>(<span class="literal">result</span>[@<span class="string">"name"</span>], @<span class="string">"张三"</span>, @<span class="string">"name应该是张三"</span>);</span><br><span class="line">    <span class="type">NSLog</span>(@<span class="string">"email : %@"</span>,<span class="literal">result</span>[@<span class="string">"email"</span>]);</span><br><span class="line">    <span class="type">XCTAssertEqual</span>(<span class="literal">result</span>[@<span class="string">"email"</span>], @<span class="string">"zhangsaan@apple.com"</span>, @<span class="string">"email应该是zhangsan@apple.com"</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="XCTest_Mock"><a href="#XCTest_Mock" class="headerlink" title="XCTest Mock"></a>XCTest Mock</h5><p>数据mock</p>
+<h4 id="2-3_u3001Xcode7_Code_Coverage_u4ECB_u7ECD"><a href="#2-3_u3001Xcode7_Code_Coverage_u4ECB_u7ECD" class="headerlink" title="2.3、Xcode7 Code Coverage介绍"></a>2.3、Xcode7 Code Coverage介绍</h4><p>谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正确以外，还有一个就是代码覆盖率问题，如果说发到线上的产品有相当一部分代码从来都没有执行过，这个问题是相当危险的(问题大家可以各自猜测，相信这个问题不是很陌生)。</p>
+<h5 id="Code_Coverage_u5DE5_u5177_u4F7F_u7528"><a href="#Code_Coverage_u5DE5_u5177_u4F7F_u7528" class="headerlink" title="Code Coverage工具使用"></a>Code Coverage工具使用</h5><p>下面说下Xcode中代码覆盖率的问题，Xcode7以前代码覆盖率统计比较麻烦，Xcode7以后Apple推出了更为人性化的工具，既然学习就学习最为流行的，过去的麻烦就当随之过去吧，何必留在痛苦回忆里(有兴趣的可以参考 <a href="https://developer.apple.com/library/ios/qa/qa1514/_index.html" target="_blank" rel="external">Apple DOC</a>  <a href="http://www.cocoachina.com/ios/20150915/13163.html" target="_blank" rel="external">Xcode代码覆盖率测试工具</a>)</p>
+<p><strong>注： 传统统计覆盖率的方法会做一部分Xcode配置，最终打出一个叫“插庄包”的包，这个包仅为做统计使用，如果要上生产环境，切忌将配置一定要关掉在从新打包上传，否则后患无穷…</strong></p>
+<p>Xcode7 提供了一个内置的Code Coverage工具组件，废话不说，下面看使用方法：</p>
+<p>1、首先需要在product-&gt;scheme-&gt;Edit Scheme里面将Code Coverage模式打开，选中为debug模式，如图:</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-selectschem.png" alt="Edit Scheme"></p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-editschem.png" alt="Edit Scheme"></p>
+<p>2、打开Code Coverage模式之后，打开某个测试类，commond+U 运行，如果测试通过，测试脚本的函数头上会出现一个绿色的标志(相反如何哪一个方法测试没有通过，则会提示一个红色错误)，如下:</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-testsucc.png" alt="Edit Scheme"></p>
+<p>3、打开Xcode左边窗口的Report Navigator，找到 Project Log,选择最近一次的log选项，最近一次是刚才的一个Test Log,选择中这个Log实例，可以看到一下界面,<br>如图:</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-testlog.png" alt="Edit Scheme"></p>
+<p>然后在tab中选中 Coverage，此时你可以看到大致的代码执行覆盖情况，如果指示条是满的则代表该类代码全部跑过一遍。</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-coverage.png" alt="xctest-case-coverage.png"></p>
+<p>4、双击你想要查看的类，此处选择查看UATrackDao，打开后既可以看到刚刚的测试中有哪些代码是执行过的，那些代码时未执行的，橘黄色的代表还未执行的，执行过的每一行后面会有一个序号代表这行代码在刚才的测试过程中执行的次数。如果有未执行的，可根据具体的情况调整对应的测试脚本，继续测试，最终确保每一行代码都能正确执行,如图:</p>
+<p><img src="http://ccguo.gitcafe.io/blog/2015-12-16/post-xctest-case/xctest-case-coverageItem.png" alt="Edit Scheme"></p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-trackDao.png" alt="Edit Scheme"></p>
+<h2 id="3-_Xcode7_u4E2D_u7684UITest"><a href="#3-_Xcode7_u4E2D_u7684UITest" class="headerlink" title="3. Xcode7中的UITest"></a>3. Xcode7中的UITest</h2><h4 id="UnitTest_u7B80_u4ECB"><a href="#UnitTest_u7B80_u4ECB" class="headerlink" title="UnitTest简介"></a>UnitTest简介</h4><p>任何软件开发中，自动化UI测试都是很重要的(UI自动化测试的好处此处就不再多说了),iOS平台在以往是通过UIAutomation来完成自动化UI测试的，它的测试用例是javascript写的(Instruments中提供了该功能)，这个过程深奥繁琐，需要自行编写对应的测试脚本，速度慢，学习成本高(关于Automation自动化测试概念大家可以查看相关的资料，Automation自动化测试在各大平台都有应用，在大型的软件开发测试过程的确的确可以节省大量的手工测试人员，大大提高软件测试的成本与效率，在最新Xcode7本文推荐使用Apple提供的最新的工具UITest)。</p>
+<p>Apple在Xcode 6中又新增了UnitTest之外，到了Xcode 7 Apple从新提供了一个新的框架UITest，这个主要是用来测试UI的，UnitTest涌来测试功能逻辑代码，UITest专门用来测试UI。</p>
+<p>Xcode 7已经集成了UITest，UITest允许你找到UI元素并与之交户，还能检查UI的属性和状态，并且UITest也已经集成在Xcode 的测试报告了，可以和单元测试一起执行，和UnitTest一样我们可以在检查UI的时间执行断言。</p>
+<p>创建UITest target，同样会生成一个“项目名称”＋UITest的group，UITest target可以在创建工程的时间勾选，也可以在工程中手动添加，在 “项目名称”＋UITest 分组下，我们可以看到系统会帮我们默认生成一个UI测试类，这个类也同样是继承于XCTestCase的。由此可见，在iOS中无论是单元测试还是UI测试，都是基于XCTestCase的。</p>
+<h4 id="UnitTest_UI_u6D4B_u8BD5"><a href="#UnitTest_UI_u6D4B_u8BD5" class="headerlink" title="UnitTest UI测试"></a>UnitTest UI测试</h4><p>创建模态视图，我们选择从第一个VC通过点击按钮的形式push到第二个VC</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-UItestIB.jpeg" alt="Edit Scheme"></p>
+<p>创建UITest target，我们对上述UI进行测试 如图选项:</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-createUITestSelectItem.jpeg" alt="Edit Scheme"></p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-createUITestPro.jpeg" alt="Edit Scheme"></p>
+<p>打开UATrackDemoUiTest.m,创建 - (void)testUI,同时将光标留在函数内</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-uitestStart.jpeg" alt="Edit Scheme"></p>
+<p>点击下面的红色按钮，开始recorder操作，程序运行起来后，点击界面上的按钮，程序会push到一个新的页面，这个时间会看到到刚才的鼠标光标处自动生成了一部分代码，重复操作，每次都会生成新的代码,如图：</p>
+<p><img src="/images/2015-12-16/post-xctest-case/xctest-case-uitestcode.jpeg" alt="Edit Scheme"></p>
+<p>从新点击小红点按钮，此时结束recorder操作，commond+U 运行测试，此时刚才的一连串动作会一步一步连续执行下来:</p>
+<p><img src="/images/2015-12-16/post-xctest-case/end.gif" alt="Edit Scheme"></p>
+<p>此处声明: 第一次点击红色的recorder按钮，然后手动操作会自动生成测试脚本，第二次commond+U是进行测试UI</p>
+<h5 id="UnitTest_u5DE5_u5177_u62D3_u5C55"><a href="#UnitTest_u5DE5_u5177_u62D3_u5C55" class="headerlink" title="UnitTest工具拓展"></a>UnitTest工具拓展</h5><p>XCTest一共提供了三种UI测试对象</p>
+<blockquote>
+<ul>
+<li>XCUIApplication   当前测试应用target</li>
+<li>XCUIElementQuery   定位查询当前UI中xctuielement的一个类</li>
+<li>XCUIElement   UI测试中任何一个item项都被抽象成一个XCUIElement类型</li>
+</ul>
+</blockquote>
+<p>当我们获取了录制生成的代码以后，根据UITest提供的三种对象，我可以在此来对测试代码进行修改，调试<br>UITest中同样适用以下断言等：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  <span class="function"><span class="title">XCTAssert</span><span class="params">(expression, format...)</span></span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//Bool测试:  </span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertTrue</span><span class="params">(expression, format...)</span></span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertFalse</span><span class="params">(expression, format...)</span></span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//相等测试</span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertEqual</span><span class="params">(expression1, expression2, format...)</span></span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertNotEqual</span><span class="params">(expression1, expression2, format...)</span></span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//double float 对比数据测试使用</span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertEqualWithAccuracy</span><span class="params">(expression1, expression2, accuracy, format...)</span></span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertNotEqualWithAccuracy</span><span class="params">(expression1, expression2, accuracy, format...)</span></span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//Nil测试，XCTAssert[Not]Nil断言判断给定的表达式值是否为nil</span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertNil</span><span class="params">(expression, format...)</span></span></span><br><span class="line">  <span class="function"><span class="title">XCTAssertNotNil</span><span class="params">(expression, format...)</span></span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//失败断言     </span></span><br><span class="line">  <span class="function"><span class="title">XCTFail</span><span class="params">(format...)</span></span></span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
+<p>关于Xcode 7 UnitTest的问题就讲到此处，希望有兴趣的同学大家共同交流…</p>
+<h2 id="4-__u5C0F_u7ED3"><a href="#4-__u5C0F_u7ED3" class="headerlink" title="4. 小结"></a>4. 小结</h2><h4 id="1-_u603B_u7ED3_u73B0_u6709_u95EE_u9898_uFF0C_u5206_u4EAB_u5FC3_u5F97"><a href="#1-_u603B_u7ED3_u73B0_u6709_u95EE_u9898_uFF0C_u5206_u4EAB_u5FC3_u5F97" class="headerlink" title="1.总结现有问题，分享心得"></a>1.总结现有问题，分享心得</h4><p>Xcode6的内置工具终于足够的好了。也就是说即使是很大的APP也没有必要为了单元测试的代码覆盖率而排斥Xcode内置的测试工具。无论什么样的测试，XCTest的各种断言、expectation和性能测试都足够应对。但是无论多好的工具，都需要用好才行。</p>
+<p>如果你在测试iOS或者OS X的APP，开始为自动添加的测试类添加一些断言并按下Command+U。你一定会发现感觉这些工具让你的测试方便不少 。</p>
+<p><a href="https://developer.apple.com/videos/play/wwdc2015-104/" target="_blank" rel="external">WWDC2015 What’s New in Xcode </a><br><a href="https://developer.apple.com/videos/play/wwdc2015-406/" target="_blank" rel="external">WWDC2015 UI Testing in Xcode </a><br><a href="https://developer.apple.com/videos/play/wwdc2014-414/" target="_blank" rel="external">WWDC2015 Testing in Xcode 6 </a><br><a href="http://nshipster.com/xctestcase" target="_blank" rel="external">Mattt Thompson Blog</a><br><a href="http://www.mincoder.com/article/3650.shtml" target="_blank" rel="external">使用Xcode自带的单元测试</a><br><a href="http://nshipster.com/method-swizzling/" target="_blank" rel="external">method-swizzling</a><br><a href="https://github.com/ParsePlatform/Parse-SDK-iOS-OSX" target="_blank" rel="external">Parse 开源代码</a></p>
+
+  </section>
+  <div class="read-more">
+   
+   <div class="read-more-item read-more-item-left">
+    
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="/2015/12/22/mvp-ios/" title="link to " class="read-more-link-title"> 基于面向协议MVP模式下的软件设计－iOS篇 
+       </a></h2>
+       <p class="excerpt">第一次听到MVC这个名词是在C#中，相信做对于MVC大家都已经很熟悉了，作为一种软件设计模式，MVC这个概念已经诞生好多年了，模型-视图-控制器（Model-View-Controller，MVC）是Xerox PARC在20世纪80年代为编程语言Smalltalk－80发明的一种软件设计模式，至今已广泛应用于用户交互应用程序中。在iOS开发中MVC的机制被使用的淋漓尽致，充分理解iOS的MVC模 &hellip;</p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          2015-12-22
+          </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="/2015/12/22/mvp-ios/">继续阅读</a>
+       </div>
+    
+   </div>
+   
+   <div class="read-more-item read-more-item-right">
+    
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="/2015/11/09/react-native-cut/" title="link to ">React-Native牛刀小试仿京东砍啊砍砍到你手软 </a>
+       </h2>
+       <p class="excerpt">几个月前facebook推出了ReactNative框架，允许开发着使用javascript代码来实现iOS原生的应用，随后十月份安卓版的也相继问世，从此我们可以优雅的Learn once write anywhere,早在几年前开发者就开始使用javascript＋html和PhoneGap来编写&hellip;
+       </p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          2015-11-09 </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="/2015/11/09/react-native-cut/">继续阅读</a>
+       </div>
+    
+   </div>
+   
+</div>
+
+  
+<section class="post-comments">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'http://sunnycn.gitcafe.io'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'sunnycn21'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//sunnycn21.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the 
+<a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</section>
+
+
+
+
+
+  
+</article>
+        <footer class="footer">
+        <div>
+            <span class="footer__copyright">
+    	       本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>
+            </span>
+            <span class="footer__copyright">
+    	       基于 <a href="https://hexo.io/">Hexo</a> 搭建，感谢 <a href="https://www.github.com/</a> 为本站提供稳定的服务
+            </span>
+            <span class="footer__copyright">
+    	       &copy; 2016. | - 本站由 <a href="https://github.com/sunnyvalue/">@sunnyvalue</a> 创建，采用 <a href="https://github.com/sunnyvalue/sunny-blog.git">huno</a> 作为主题
+            </span>
+            本页点击 
+            <span id="busuanzi_value_page_pv"></span> 次|;本站总点击 <span id="busuanzi_value_site_pv"></span> 次|;您是第 <span id="busuanzi_value_site_uv">
+            </span> 位访客
+	        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	        </script>
+            <span><a href="/sitemap.xml">Google网站地图</a></span>
+  	        <span><a href="/baidusitemap.xml">百度网站地图</a></span>
+        </div>
+  	 <script>
+		(function(){
+    		var bp = document.createElement('script');
+    		bp.src = '//push.zhanzhang.baidu.com/push.js';
+    		var s = document.getElementsByTagName("script")[0];
+    		s.parentNode.insertBefore(bp, s);
+		})();
+	 </script>
+        </footer>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script> 
+    
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "//hm.baidu.com/hm.js?bff0d31b7343635ef2daea623ff5ec14";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+     
+    <!--kill ie6 --><!--[if IE 6]><script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script><![endif]-->
+</body>
+</html>

@@ -1,0 +1,36 @@
+<%if(config.social){%>
+                <nav class="cover-navigation navigation--social">
+                    <ul class="navigation">
+                        <% if (config.social.weibo) { %><li class="navigation__item">
+                        <a href="<%= config.social.weibo %>" title="Huno on weibo">
+                        <i class='icon icon-social-weibo'></i>
+                        <span class="label">weibo</span>
+                        </a>
+                        </li><% } %>
+                        <% if (config.social.github) { %><li class="navigation__item">
+                            <a href="<%= config.social.github %>" title="Huno on GitHub">
+                            <i class='icon icon-social-github'></i>
+                            <span class="label">GitHub</span>
+                            </a>
+                        </li><% } %>
+                        <% if (config.social.twitter) { %><li class="navigation__item">
+                            <a href="<%= config.social.twitter %>" title="Huno on twitter">
+                            <i class='icon icon-social-twitter'></i>
+                            <span class="label">twitter</span>
+                            </a>
+                        </li><% } %>
+                        <% if (config.social.stackoverflow) { %><li class="navigation__item">
+                            <a href="<%= config.social.stackoverflow %>" title="Huno on stack-overflow">
+                            <i class='icon icon-social-stack-overflow'></i>
+                            <span class="label">stack-overflow</span>
+                            </a>
+                        </li><% } %>
+                        <% if (config.social.mail) { %><li class="navigation__item">
+                            <a href="<%= config.social.mail %>" title="Huno on mail">
+                            <i class='icon icon-mail'></i>
+                            <span class="label">mail</span>
+                            </a>
+                        </li><% } %>
+                    </ul>
+                </nav>
+            <% } %>

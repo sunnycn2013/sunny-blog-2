@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+    <title>
+    React-Native牛刀小试仿京东砍啊砍砍到你手软  | 风之痕 | 风之痕的博客
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="几个月前facebook推出了ReactNative框架，允许开发着使用javascript代码来实现iOS原生的应用，随后十月份安卓版的也相继问世，从此我们可以优雅的Learn once write anywhere,早在几年前开发者就开始使用javascript＋html和PhoneGap来编写各式各样的app了，开发者可以优雅的完成一套js的shell，然后分别在不同的平台下进行打包，最终生">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="React-Native牛刀小试仿京东砍啊砍砍到你手软  | 风之痕">
+    <meta property="og:url" content="http://sunnycn.gitcafe.io/2015/11/09/react-native-cut/index.html">
+    <meta property="og:site_name" content="风之痕">
+    <meta property="og:description" content="几个月前facebook推出了ReactNative框架，允许开发着使用javascript代码来实现iOS原生的应用，随后十月份安卓版的也相继问世，从此我们可以优雅的Learn once write anywhere,早在几年前开发者就开始使用javascript＋html和PhoneGap来编写各式各样的app了，开发者可以优雅的完成一套js的shell，然后分别在不同的平台下进行打包，最终生">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-react-native-cut/react-native-01.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-react-native-cut/ReactNative-Starter.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-react-native-cut/termial.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-react-native-cut/react-native-00.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-react-native-cut/react-native-02.png">
+    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-react-native-cut/react-native-01.png">
+    <meta property="og:updated_time" content="2016-01-17T09:31:24.000Z">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="React-Native牛刀小试仿京东砍啊砍砍到你手软  | 风之痕">
+    <meta name="twitter:description" content="几个月前facebook推出了ReactNative框架，允许开发着使用javascript代码来实现iOS原生的应用，随后十月份安卓版的也相继问世，从此我们可以优雅的Learn once write anywhere,早在几年前开发者就开始使用javascript＋html和PhoneGap来编写各式各样的app了，开发者可以优雅的完成一套js的shell，然后分别在不同的平台下进行打包，最终生">
+    <meta name="author" content="关于前端与iOS、React,ReactNative、黑客与画家 | 如画，Web &amp; Mobile Lover，iOS Engineer,移动端 | 这里是 @风之痕 的个人博客，与你一起发现更大的世界。">
+    
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+    <meta name="baidu-site-verification" content="dDShp3YniR" />
+</head>
+<body>
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+    
+<header class="panel-cover panel-cover--collapsed">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+          <a href="/" title="link to homepage for 风之痕"><img src="/images/avatar.png" width="80" alt="风之痕 logo" class="panel-cover__logo logo" /></a>
+          <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">风之痕</a></h1>
+          <span class="panel-cover__subtitle"> 上善若水 人淡如菊... </span>
+          <hr class="panel-cover__divider" />
+          <p class="panel-cover__description">hello 大家好，我是sunny，目前就职于360buy...</p>
+          <hr class="panel-cover__divider panel-cover__divider--secondary" />
+          <p class="panel-cover__description">
+            <a href="http://sunnycn.gitcafe.io" target="_blank">sunnycn.gitcafe.io - 我维护的 iOS 使用技巧分享网站，每周三更新，欢迎访问..</a>
+          </p>
+          <div class="navigation-wrapper">
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                  <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+                  <li class="navigation__item"><a href="/archives" title="" class="">归档</a></li>
+                  <li class="navigation__item"><a href="/notes" title="" class="">随笔</a></li>
+                  <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+                </ul>
+            </nav>
+            <div>
+                <nav class="cover-navigation navigation--social">
+                    <ul class="navigation">
+                        <li class="navigation__item">
+                        <a href="http://weibo.com/sunnycn" title="Huno on weibo">
+                        <i class='icon icon-social-weibo'></i>
+                        <span class="label">weibo</span>
+                        </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="https://github.com/sunnyvalue" title="Huno on GitHub">
+                            <i class='icon icon-social-github'></i>
+                            <span class="label">GitHub</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="ccguo" title="Huno on twitter">
+                            <i class='icon icon-social-twitter'></i>
+                            <span class="label">twitter</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="ccguo" title="Huno on stack-overflow">
+                            <i class='icon icon-social-stack-overflow'></i>
+                            <span class="label">stack-overflow</span>
+                            </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="389878212@qq.com" title="Huno on mail">
+                            <i class='icon icon-mail'></i>
+                            <span class="label">mail</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry"> 
+<article class="post-container post-container--single">
+  <header class="post-header">
+    <h1 class="post-title">React-Native牛刀小试仿京东砍啊砍砍到你手软 </h1>
+    
+    <div class="post-meta">
+      <time datetime="2015-11-09" class="post-meta__date date">2015-11-09</time>
+      <span class="post-meta__tags tags">
+           &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/React-Native/">React-Native</a>, <a class="tags-link" href="/tags/iOS/">iOS</a>, <a class="tags-link" href="/tags/电子商务/">电子商务</a>
+            </font>
+      </span>
+    </div>
+    
+  </header>
+  <section id="post-content" class="article-content post">
+    <h3 id="React-Native_u57FA_u7840_u6559_u7A0B"><a href="#React-Native_u57FA_u7840_u6559_u7A0B" class="headerlink" title="React-Native基础教程"></a>React-Native基础教程</h3><p>*<a href="http://www.cnblogs.com/vczero/p/react-native.html" target="_blank" rel="external">React-Native基础篇</a><a href="https://github.com/vczero/react-native-lession" target="_blank" rel="external">作者git</a></p>
+<p>*<a href="http://facebook.github.io/react-native/docs/getting-started.html#content" target="_blank" rel="external">React-Native官方文档</a></p>
+<p>*<a href="https://github.com/ccguo/HelloWorld" target="_blank" rel="external">下载本教程demo</a></p>
+<p> 几个月前facebook推出了React Native框架，允许开发着使用javascript代码来实现iOS原生的应用，随后十月份安卓版的也相继问世，从此我们可以优雅的Learn once, write anywhere…</p>
+<p> 早在几年前开发者就开始使用javascript＋html和PhoneGap来编写各式各样的app了，开发者可以优雅的完成一套js的shell，然后分别在不同的平台下进行打包，最终生成不同平台的app，知识app的最终的展现形式都是html类型的。一度曾经出现webapp 是否要取代native ，这么多年过去，结果大家也不言而知了。</p>
+<p> 但是react native的确是一个很了不起的东西，开发者们都不禁为之欢呼，react native所展现出来的应用实质上是native应用，开发者完成同一套js代码，分别在iOS和安卓平台下分别打包最终分别能映射生成分属不同的安卓原生应用与iOS原生应用，这个优势可能是目前为止被广大开发最为喜欢的地方，一直以来web app最为大家所诟病的可能就是html的页面永远无法与原生页面的体验相比拟。</p>
+<ul>
+<li><p>通过react native框架，你可以用JavaScript来编写和运行应用程序逻辑，而UI却可以是真正的本地代码编写的，因此，你完全不需要一个HTML5编写的UI。</p>
+</li>
+<li><p>React框架采用了一种新颖的、激进的和高度函数式的方式来构建UI。简单说，应用程序的UI可以简单地用一个函数来表示应用程序当前的状态</p>
+<p>  React Native的重点是把React编程模型引进到移动App的开发中去。它的目的并不是跨平台，一次编写到处运行。它真正的目标是“一次学习多处编写”。这是一个重大的区别。本教程只涉及iOS，但一旦你学会了它的思想，你就可以快速将同样的知识应用到Android App的编写上。</p>
+<p>  React Native的编写模式更加友好于从事于js的前端开发者，它本身采用了React js的模式，尤其是从事React js的开发人员，只需要熟悉下基本的文档就能瞬间变成一个iOS＋安卓双向通吃的移动专家，React内部引入可一些新的概念，如 DOM和reconciliation，React直接将函数式编程的理念用到了UI层面。<br>不过相对来说，OC的开发人员只要熟悉一下基本demo看上几个例子应该就不会有太多问题了，如果之前有过web端开发经验的话相信上手会更快一些。</p>
+</li>
+</ul>
+<p>下面介绍一个简单的demo操作，这个教程一起带你去体验一下京东促销砍啊砍页面的OC-&gt;React 移植过程，通过本教程你就可以了解React Native的一些基本开发流程了。<br>效果：</p>
+<p><img src="/images/2015-12-16/post-react-native-cut/react-native-01.png" alt="react-native-01.png"><br>如果你之前从未写过任何 JavaScript ，别担心；这篇教程带着你一点一点编写代码。React 使用 CSS 属性来定义样式，这些样式通常都很易于阅读和理解，但是如果你想进一步了解，可以参考:。<br>要想学习更多内容，请往下看</p>
+<h3 id="u5F00_u59CB"><a href="#u5F00_u59CB" class="headerlink" title="开始"></a>开始</h3><p>React native 关于环境搭建问题此处就不多说了，详情请见<a href="http://www.cnblogs.com/vczero/p/react-native.html" target="_blank" rel="external">React native基础教程</a>,此处就从我们已经准备好一切前序工作开始，万事具备只欠东风，下面开始:</p>
+<p>首先React Native 启动画面开始，创建helloworld工程，启动画面如下：</p>
+<p><img src="/images/2015-12-16/post-react-native-cut/ReactNative-Starter.png" alt="ReactNative-Starter.png"></p>
+<p>与此同时Xcode还会打开一个终端窗口，并显示如下信息：</p>
+<p><img src="/images/2015-12-16/post-react-native-cut/termial.png" alt="termial.png"></p>
+<p>这是React Navtive Packager，它在node容器中运行。你待会就会发现它的用处。<br>千万不要关闭这个窗口，让它一直运行在后面。如果你意外关闭它，可以在Xcode中先停止程序，再重新运行程序。</p>
+<blockquote>
+<p>注意:<br>在开始接触具体的代码之前（在本教程中，主要是js代码），我们将推荐 Sublime<br>Text这个文本编辑工具，因为Xcode并不适合用于编写js代码的。当然，你也可以使用 atom, brackets<br>等其他轻量级的工具来替代。</p>
+</blockquote>
+<p>React Native完成的js完成的代码其实是跑在本地的node下面的，从appdelegate里面可以看到React Native工程会从一个本机地址“<a href="http://localhost:8081/index.ios.bundle?platform=ios&amp;dev=true&quot;读取一个对应的文件，这个文件中就是系统已经自动帮你打包压缩整合过以后的一个js" target="_blank" rel="external">http://localhost:8081/index.ios.bundle?platform=ios&amp;dev=true&quot;读取一个对应的文件，这个文件中就是系统已经自动帮你打包压缩整合过以后的一个js</a> 代码库，接下来React Native引擎会将这个库中的js代码完全的解析、翻译成对应的iOS原生内容，最终以iOS原生UI的形式渲染到桌面上，这个就是React Native整个工作流程。</p>
+<h3 id="u4F60_u597D_uFF0C_React_Native"><a href="#u4F60_u597D_uFF0C_React_Native" class="headerlink" title="你好， React Native"></a>你好， React Native</h3><p>在开始编写这个demo之前我们先创建一个简单的Hello World项目，用你喜欢的文本编辑器（例如Sublime Text）打开index.ios.js ，删除所有内容。然后加入以下语句：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react-native'</span>);</span><br><span class="line"><span class="keyword">var</span> &#123;</span><br><span class="line">  AppRegistry,</span><br><span class="line">  Text,</span><br><span class="line">  View,</span><br><span class="line">&#125; = React;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> HelloWorld = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="title">View</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">View</span>&gt;</span><span class="tag">&lt;<span class="title">Text</span>&gt;</span>你好， React Native<span class="tag">&lt;/<span class="title">Text</span>&gt;</span><span class="tag">&lt;/<span class="title">View</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">    )</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">AppRegistry.registerComponent(<span class="string">'HelloWorld'</span>, () =&gt; HelloWorld);</span><br></pre></td></tr></table></figure>
+<p>好了，“Hello World” 的演示就到此为止；接下来我们要编写一个真正的React App了！</p>
+<h3 id="u521B_u5EFA_u4E00_u4E2A_u5BFC_u822A"><a href="#u521B_u5EFA_u4E00_u4E2A_u5BFC_u822A" class="headerlink" title="创建一个导航"></a>创建一个导航</h3><p>这个demo使用了标准的UIKit中的导航控制器来提供”栈式导航体验“。接下来我们就来实现这个功能。</p>
+<p>在 index.ios.js, 添加以下代码:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Home = <span class="keyword">require</span>(<span class="string">'./cut/Home'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> HelloWorld = React.createClass(<span class="comment">//&#123;</span></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> //</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;NavigatorIOS </span><br><span class="line">             initialRoute=<span class="comment">//&#123;//&#123;title:'首页',</span></span><br><span class="line">                        component:Home,</span><br><span class="line">                      <span class="comment">//&#125;//&#125;//&gt;</span></span><br><span class="line">    );</span><br><span class="line">  <span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//&#125;);</span></span><br></pre></td></tr></table></figure>
+<p>NavigatorIOS就是React Native中对应的导航视图，我们再次暂时可以理解就是iOS中的UINavigationController,我们在此处创建了一个基于导航的视图控制器，rootViewController对应的页面就是Home。</p>
+<h3 id="u521B_u5EFArootView_Home_uFF0C_u6DFB_u52A0Home-js__u6587_u4EF6_uFF0C_u6DFB_u52A0_u4EE3_u7801_u5982_u4E0B_uFF1A"><a href="#u521B_u5EFArootView_Home_uFF0C_u6DFB_u52A0Home-js__u6587_u4EF6_uFF0C_u6DFB_u52A0_u4EE3_u7801_u5982_u4E0B_uFF1A" class="headerlink" title="创建rootView Home，添加Home.js 文件，添加代码如下："></a>创建rootView Home，添加Home.js 文件，添加代码如下：</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cutList = require(<span class="string">'./CutList'</span>);</span><br><span class="line"><span class="keyword">var</span> Home = React.createClass(&#123;</span><br><span class="line"></span><br><span class="line">	render:<span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			&lt;TouchableHighlight onPress=&#123;()=&gt; <span class="keyword">this</span>.goToNext()&#125;&gt;</span><br><span class="line">			&lt;View&gt;</span><br><span class="line">				&lt;Text&#125;&gt;go to cut&lt;/Text&gt;</span><br><span class="line">			&lt;/View&gt;</span><br><span class="line">			&lt;/TouchableHighlight&gt;</span><br><span class="line">          );</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	goToNext:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">      		component: cutList,</span><br><span class="line">    &#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Home 我们只放了一个按钮，按钮文字“go to cut”，另外添加了一个点击触摸事件，事件相应题是goToNext:function();   在函数处理事件内部，我们只做了页面的push跳转，目标页面是cutList页面，运行效果如下：</p>
+<p><img src="/images/2015-12-16/post-react-native-cut/react-native-00.png" alt="react-native-00.png"></p>
+<h3 id="u6784_u5EFA_u780D_u554A_u780DList_u9875_u9762_uFF0C_u4ECE_u7F51_u7EDC_u83B7_u53D6_u6570_u636E_uFF0C_u7ED8_u5236table_u7ED1_u5B9A_u4E8B_u4EF6"><a href="#u6784_u5EFA_u780D_u554A_u780DList_u9875_u9762_uFF0C_u4ECE_u7F51_u7EDC_u83B7_u53D6_u6570_u636E_uFF0C_u7ED8_u5236table_u7ED1_u5B9A_u4E8B_u4EF6" class="headerlink" title="构建砍啊砍List页面，从网络获取数据，绘制table绑定事件"></a>构建砍啊砍List页面，从网络获取数据，绘制table绑定事件</h3><h4 id="u6784_u9020_u9876_u90E8bunner_u52A8_u753B_u56FE"><a href="#u6784_u9020_u9876_u90E8bunner_u52A8_u753B_u56FE" class="headerlink" title="构造顶部bunner动画图"></a>构造顶部bunner动画图</h4><p>轮播图这个地方采用了React Native的一个第三方库swiper(偷懒了)，</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var Swiper = require('react-native-swiper')<span class="comment">;</span></span><br><span class="line">初始化数据</span><br><span class="line">var sliderImgs = [</span><br><span class="line">    'http://m.360buyimg.com/mobile/s<span class="number">725x175</span>_jfs/t<span class="number">2332/80/70</span><span class="number">1506039/111</span><span class="number">191/37a1273</span>/<span class="number">5624850</span>bN2469d61f.jpg',</span><br><span class="line">    'http://m.360buyimg.com/mobile/s<span class="number">725x175</span>_jfs/t<span class="number">2401/354</span>/<span class="number">694665708</span>/<span class="number">117887/3a28</span><span class="number">3185/56248</span>ee<span class="number">2N58518e76</span>.jpg',</span><br><span class="line">    'http://m.360buyimg.com/mobile/s<span class="number">725x175</span>_jfs/t<span class="number">2506/269</span>/<span class="number">651438394</span>/152836/cf<span class="number">430d42/56</span>1f6b3aN80cb83f4.jpg',</span><br><span class="line">    'http://m.360buyimg.com/mobilecms/s<span class="number">750x410</span>_jfs/t<span class="number">2326/263</span>/<span class="number">687562306</span>/170970/c<span class="number">3f92c7/56</span>20cbddNaa6a2cda.jpg!q70.jpg',</span><br><span class="line">    'http://m.360buyimg.com/mobilecms/s<span class="number">750x410</span>_jfs/t<span class="number">1891/237/63</span><span class="number">7408747/193</span>879/1acee<span class="number">0f7/5620</span>be<span class="number">19N801621</span>e4.jpg!q70.jpg'</span><br><span class="line">]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">//初始化UI</span><br><span class="line">render:function () \\&#123;</span><br><span class="line">		return (</span><br><span class="line">			<span class="tag">&lt;<span class="title">View</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">View</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">Swiper</span> <span class="attribute">style</span>=<span class="value">\\&#123;styles.wrapper\\&#125;</span> <span class="attribute">showsButtons</span>=<span class="value">\\&#123;false\\&#125;</span> <span class="attribute">autoplay</span>=<span class="value">\\&#123;true\\&#125;</span> <span class="attribute">height</span>=<span class="value">\\&#123;150\\&#125;</span> <span class="attribute">showsPagination</span>=<span class="value">&#123;true&#125;</span>&gt;</span></span><br><span class="line">        				<span class="tag">&lt;<span class="title">Image</span> <span class="attribute">style</span>=<span class="value">&#123;[styles.slide,]&#125;</span> <span class="attribute">source</span>=</span></span><span class="expression">&#123;&#123;<span class="variable">uri</span>: <span class="variable">sliderImgs</span>[0]&#125;&#125;</span><span class="xml"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="title">Image</span>&gt;</span></span><br><span class="line">        				<span class="tag">&lt;<span class="title">Image</span> <span class="attribute">style</span>=<span class="value">&#123;[styles.slide,]&#125;</span> <span class="attribute">source</span>=</span></span><span class="expression">&#123;&#123;<span class="variable">uri</span>: <span class="variable">sliderImgs</span>[1]&#125;&#125;</span><span class="xml"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="title">Image</span>&gt;</span></span><br><span class="line">        				<span class="tag">&lt;<span class="title">Image</span> <span class="attribute">style</span>=<span class="value">&#123;[styles.slide,]&#125;</span> <span class="attribute">source</span>=</span></span><span class="expression">&#123;&#123;<span class="variable">uri</span>: <span class="variable">sliderImgs</span>[2]&#125;&#125;</span><span class="xml"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="title">Image</span>&gt;</span></span><br><span class="line">        				<span class="tag">&lt;<span class="title">Image</span> <span class="attribute">style</span>=<span class="value">&#123;[styles.slide,]&#125;</span> <span class="attribute">source</span>=</span></span><span class="expression">&#123;&#123;<span class="variable">uri</span>: <span class="variable">sliderImgs</span>[3]&#125;&#125;</span><span class="xml"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="title">Image</span>&gt;</span></span><br><span class="line">        				<span class="tag">&lt;<span class="title">Image</span> <span class="attribute">style</span>=<span class="value">&#123;[styles.slide,]&#125;</span> <span class="attribute">source</span>=</span></span><span class="expression">&#123;&#123;<span class="variable">uri</span>: <span class="variable">sliderImgs</span>[4]&#125;&#125;</span><span class="xml"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="title">Image</span>&gt;</span></span><br><span class="line">      				<span class="tag">&lt;/<span class="title">Swiper</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line"></span><br><span class="line">				<span class="tag">&lt;<span class="title">View</span> <span class="attribute">style</span>=<span class="value">&#123;styles.listViewSuper&#125;</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">ListView</span> <span class="attribute">style</span>=<span class="value">&#123;styles.tableStyle&#125;</span></span><br><span class="line">          				<span class="attribute">dataSource</span> = &#123;<span class="attribute">this.state.dataSource</span>&#125;</span><br><span class="line">          				<span class="attribute">renderRow</span>=<span class="value">&#123;this._renderRow.bind(this)&#125;</span></span><br><span class="line">                  <span class="attribute">pageSize</span>=<span class="value">&#123;5&#125;</span></span><br><span class="line">                  <span class="attribute">automaticallyAdjustContentInsets</span>=<span class="value">&#123;false&#125;</span>//&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">			);</span><br><span class="line">	&#125;,</span></span><br></pre></td></tr></table></figure>
+<p>再次看到render:function()这个函数，应该没那么陌生了吧，暂时可以理解render相当于ViewController中的ViewDidLoad：，我们一般在render里面做一些初始化UI视图的工作，此处我们初始化了swiper和ListView</p>
+<blockquote>
+<p>swiper</p>
+<ul>
+<li>showsButtons        (bool)   是否显示左右切换按钮(显示两个按钮左切 友切)</li>
+<li>autoplay                (bool)   是否开启自动播放</li>
+<li>height                    (bool)    高度(不解释)</li>
+<li>showsPagination  (bool)   是否显示pageControl</li>
+</ul>
+<p>ListView</p>
+<ul>
+<li>dataSource  绑定数据源</li>
+<li>renderRow   cell绑定函数事件(等价于tableView:cellForRowAtIndexPath:)</li>
+<li>automaticallyAdjustContentInsets UI布局相关的</li>
+</ul>
+</blockquote>
+<h4 id="u521D_u59CB_u5316_u6570_u636E_u6E90"><a href="#u521D_u59CB_u5316_u6570_u636E_u6E90" class="headerlink" title="初始化数据源"></a>初始化数据源</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attribute">getInitialState</span>:function()&#123;</span><br><span class="line">      var ds = <span class="keyword">new</span> ListView.DataSource(&#123;<span class="attribute">rowHasChanged</span>: <span class="function"><span class="params">(r1, r2)</span> =&gt;</span> r1 !== r2&#125;);</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attribute">dataSource</span>: <span class="keyword">new</span> ListView.DataSource(&#123;</span><br><span class="line">        	<span class="attribute">rowHasChanged</span>: <span class="function"><span class="params">(r1, r2)</span> =&gt;</span> r1 !== r2</span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="attribute">loaded</span>:<span class="literal">false</span>,</span><br><span class="line">        <span class="attribute">currentPage</span>:<span class="number">0</span>,</span><br><span class="line">      &#125;;</span><br><span class="line">  	&#125;,</span><br></pre></td></tr></table></figure>
+<p>getInitialState:function()类似于OC中的init函数，我们一般的习惯喜欢在init函数初始化一个变量等数据，在React Native依旧是这样。</p>
+<h4 id="u53D1_u8D77_u7F51_u7EDC_u8BF7_u6C42_uFF0C_u83B7_u53D6_u6570_u636E_uFF0C_u7F13_u5B58_u5728_u5168_u5C40_u53D8_u91CFList_u4E2D"><a href="#u53D1_u8D77_u7F51_u7EDC_u8BF7_u6C42_uFF0C_u83B7_u53D6_u6570_u636E_uFF0C_u7F13_u5B58_u5728_u5168_u5C40_u53D8_u91CFList_u4E2D" class="headerlink" title="发起网络请求，获取数据，缓存在全局变量List中"></a>发起网络请求，获取数据，缓存在全局变量List中</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义request url </span></span><br><span class="line"><span class="keyword">var</span> urlPath = <span class="string">'http://ccguo.gitcafe.io/cut.json'</span>;</span><br><span class="line"><span class="keyword">var</span> CACHE = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">//componentDidMount:function  系统方法</span></span><br><span class="line">componentDidMount:<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  		<span class="keyword">this</span>.fetchData();</span><br><span class="line">  	&#125;,</span><br><span class="line"><span class="comment">//自定义函数处理网络获取数据，将数据放入全局变量CACHE</span></span><br><span class="line">  	cache:<span class="function"><span class="keyword">function</span><span class="params">(items)</span></span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> items) &#123;</span><br><span class="line">        CACHE.push(items[i]);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">               dataSource: <span class="keyword">this</span>.state.dataSource.cloneWithRows(CACHE),</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span>发起 网络请求，获得json</span><br><span class="line">  	<span class="attribute">fetchData</span>:function()&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</span><br><span class="line">  		fetch(urlPath)</span><br><span class="line">  		  .<span class="keyword">then</span>(<span class="function"><span class="params">(response)</span> =&gt;</span> response.json())</span><br><span class="line">        .<span class="keyword">then</span>(<span class="function"><span class="params">(responseText)</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(responseText.cutList);</span><br><span class="line">          <span class="keyword">this</span>.cache(responseText.cutList);</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="keyword">catch</span>(<span class="function"><span class="params">(error)</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(error);</span><br><span class="line">        &#125;);</span><br><span class="line">  	&#125;,</span><br></pre></td></tr></table></figure>
+<p>这个过程模拟了在iOS原生应用里面，初始化网络request，发起网络请求，得到数据，解析数据，然后将数据存入list这一些列操作，其实在js中，js脚本处理json的能力还是很强的，我们再也不需要像OC中哪些objectForKey:的操作了，我们不需要任何MJExtension、JSONModel、 Mantle等一些潜在的工具了，省去了很多的麻烦，我们直接拿到一个json对象，直接对对象进行操作。</p>
+<p>另外React的网络请求此处我们只是使用了fetch API<a href="http://facebook.github.io/react-native/docs/network.html#content" target="_blank" rel="external">脸谱官方的api</a>(脸谱对于网络请求提供了多种API，如：fetch WebSocket XMLHttpRequest等，具体可参照API)</p>
+<p>从代码上看js的链式编程刚看上去有点不太习惯，不过整体使用起来还是比OC中快捷多了，foreach遍历、消息队列进出栈，总之脚步里面省去了以往还不得不在意的好多麻烦，其实这块相对swift而言，新的版本中渐渐的已经得到了部分提升，不过还是要感谢脸谱团队，没有他们，可能还见识不到React的强大。</p>
+<h4 id="u6784_u5EFAcell"><a href="#u6784_u5EFAcell" class="headerlink" title="构建cell"></a>构建cell</h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">_renderRow:</span>function(data,sectionID,rowID)&#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     &lt;<span class="constant">TouchableHighlight</span> onPress=&#123;() =&gt; this._pressRow(data,rowID)&#125;&gt;</span><br><span class="line">     &lt;<span class="constant">View</span> style=<span class="expansion">&#123;&#123;<span class="symbol">backgroundColor:</span><span class="string">'white'</span>&#125;&#125;</span>&gt;</span><br><span class="line">       &lt;<span class="constant">View</span> style=<span class="expansion">&#123;&#123;<span class="symbol">width:</span><span class="number">375</span>,<span class="symbol">height:</span><span class="number">150</span>,<span class="symbol">flexDirection:</span><span class="string">'row'</span>&#125;&#125;</span>&gt;</span><br><span class="line">         &lt;<span class="constant">View</span> style=<span class="expansion">&#123;&#123;<span class="symbol">flex:</span><span class="number">2</span>,<span class="symbol">borderColor:</span><span class="string">'green'</span>,<span class="symbol">borderWidth:</span><span class="number">0.5</span>&#125;&#125;</span>&gt;</span><br><span class="line">             &lt;<span class="constant">Image</span> style=<span class="expansion">&#123;&#123;<span class="symbol">width:</span><span class="number">125</span>,<span class="symbol">height:</span><span class="number">125</span>,<span class="symbol">margin:</span><span class="number">10</span>,<span class="symbol">borderWidth:</span><span class="number">0.5</span>,<span class="symbol">borderColor:</span><span class="string">'#97979A'</span>,<span class="symbol">borderRadius:</span><span class="number">2</span>&#125;&#125;</span> source=<span class="expansion">&#123;&#123;<span class="symbol">uri:</span>data.img&#125;&#125;</span>&gt;&lt;<span class="regexp">/Image&gt;</span><br><span class="line">         &lt;/</span><span class="constant">View</span>&gt;</span><br><span class="line">         &lt;<span class="constant">View</span> style=&#123;styles.row,&#123;<span class="symbol">flex:</span><span class="number">3</span>,<span class="symbol">borderColor:</span><span class="string">'blue'</span>,<span class="symbol">borderWidth:</span><span class="number">0.5</span>&#125;&#125;&gt;</span><br><span class="line">           &lt;<span class="constant">Text</span> style=<span class="expansion">&#123;&#123;<span class="symbol">marginLeft:</span><span class="number">20</span>,<span class="symbol">fontSize:</span><span class="number">18</span>,<span class="symbol">color:</span><span class="string">'black'</span>,<span class="symbol">height:</span><span class="number">84</span>&#125;&#125;</span>&gt;</span><br><span class="line">             &#123;rowID+<span class="string">'-'</span>+data.wname&#125;</span><br><span class="line">           &lt;<span class="regexp">/Text&gt;</span><br><span class="line">           &lt;Text style=&#123;&#123;marginLeft:20,fontSize:14,color:'black',marginTop:10&#125;&#125;&gt;京东价318.00&lt;/</span><span class="constant">Text</span>&gt;</span><br><span class="line">           &lt;<span class="constant">View</span> style=<span class="expansion">&#123;&#123;<span class="symbol">marginLeft:</span><span class="number">20</span>,<span class="symbol">width:</span><span class="number">100</span>,<span class="symbol">borderWidth:</span><span class="number">0.5</span>,<span class="symbol">borderColor:</span><span class="string">'red'</span>,<span class="symbol">borderRadius:</span><span class="number">1</span>&#125;&#125;</span>&gt;</span><br><span class="line">           &lt;<span class="constant">Text</span> style=<span class="expansion">&#123;&#123;<span class="symbol">fontSize:</span><span class="number">12</span>,<span class="symbol">color:</span><span class="string">'red'</span>&#125;&#125;</span>&gt;已有<span class="number">256</span>人砍价&lt;<span class="regexp">/Text&gt;</span><br><span class="line">           &lt;Text style=&#123;&#123;fontSize:17,color:'white',backgroundColor:'red',textAlign:'center'&#125;&#125;&gt;马上砍&lt;/</span><span class="constant">Text</span>&gt;</span><br><span class="line">           &lt;<span class="regexp">/View&gt;</span><br><span class="line">         &lt;/</span><span class="constant">View</span>&gt;</span><br><span class="line">       &lt;<span class="regexp">/View&gt;</span><br><span class="line">         &lt;View style=&#123;styles.separator&#125; /</span>&gt;</span><br><span class="line">     &lt;<span class="regexp">/View&gt;  </span><br><span class="line">     &lt;/</span><span class="constant">TouchableHighlight</span>&gt;</span><br><span class="line">     );</span><br><span class="line"> &#125;,</span><br><span class="line"> <span class="symbol">_pressRow:</span> function(data,rowID) &#123;</span><br><span class="line">   this.props.navigator.push(&#123;</span><br><span class="line">     <span class="symbol">component:</span> detail,</span><br><span class="line">     <span class="symbol">passProps:</span> &#123;<span class="symbol">data:</span> data&#125;</span><br><span class="line">   &#125;);</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<p>在上述初始化ListView UI的时间，我们指定了renderRow 对应的action事件，此处我们可以直接在_renderRow:function中构建自己的cell模版，至于React Native中UI的标签基本用法，大家可以去头部基础教程里面找，有点类似于html标签，总之我们在_renderRow:function纯碎是构造cell的代码，这个类似于tableViewCell subClass, cell点击事件我们使用一个TouchableHighlight来代替</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">TouchableHighlight</span> <span class="attribute">onPress</span>=<span class="value">&#123;()</span> =&gt;</span> this._pressRow(data,rowID)&#125;&gt;</span><br><span class="line">....</span><br><span class="line"><span class="tag">&lt;/<span class="title">TouchableHighlight</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>TouchableHighlight事件处理action同样是一个函数（不解释），在_pressRow事件中我们处理自己的cell点击跳转，顺便插一句下一步的操作，_pressRow（data,rowID）是带有形参的<br>另外 ListView renderRow 事件的重载函数，形参类型这个具体参照<a href="http://facebook.github.io/react-native/docs/listview.html#content" target="_blank" rel="external">脸谱官方的api</a></p>
+<p>_renderRow:function(data,sectionID,rowID)。</p>
+<p>整体运行效果如下：</p>
+<p><img src="/images/2015-12-16/post-react-native-cut/react-native-02.png" alt="react-native-02.png"></p>
+<h4 id="u5904_u7406cell_u8DF3_u8F6C_u4E8B_u4EF6"><a href="#u5904_u7406cell_u8DF3_u8F6C_u4E8B_u4EF6" class="headerlink" title="处理cell跳转事件"></a>处理cell跳转事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> detail = <span class="built_in">require</span>(<span class="string">'./Detail'</span>);</span><br><span class="line"></span><br><span class="line"> _pressRow: <span class="function"><span class="keyword">function</span>(<span class="params">data,rowID</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.props.navigator.push(&#123;</span><br><span class="line">      component: detail,</span><br><span class="line">      passProps: &#123;data: data&#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>React在处理事件跳转的时间，仍旧采用进栈出栈的形式，这一点和Apple的理念还是类似的。</p>
+<blockquote>
+<ul>
+<li>component:     参数对应将要跳转的目标页面，</li>
+<li>passProps:     传参字典，内部为key-val形式，相当于一个容器，到了目标页面后可以根据key从容器中取出传递的值。</li>
+</ul>
+</blockquote>
+<h4 id="u83B7_u53D6_u9875_u9762_u8DF3_u8F6C_u65F6_u95F4_u5BB9_u5668_u4E2D_u7684_u503C"><a href="#u83B7_u53D6_u9875_u9762_u8DF3_u8F6C_u65F6_u95F4_u5BB9_u5668_u4E2D_u7684_u503C" class="headerlink" title="获取页面跳转时间容器中的值"></a>获取页面跳转时间容器中的值</h4><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">Text</span> style=<span class="list">&#123;styles.view&#125;</span>&gt;<span class="list">&#123;this.props.data.wname&#125;</span>&lt;/<span class="keyword">Text</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>到了目标页面后，我们直接从props容器直接根据key就能将传递的参数去处，此处我们传递参数的本身是一个json,我们只是讲wname显示到detail页面。<br>效果如下：</p>
+<p><img src="/images/2015-12-16/post-react-native-cut/react-native-01.png" alt="react-native-01.png"></p>
+<h3 id="u63A5_u4E0B_u6765_u505A_u4EC0_u4E48"><a href="#u63A5_u4E0B_u6765_u505A_u4EC0_u4E48" class="headerlink" title="接下来做什么"></a>接下来做什么</h3><p>恭喜你，你的第一个React Native App终于完成了！你可以在GitHub上找到每一个”可运行的“步骤的项目源文件，如果你搞不定的时候它们会非常有用的 :]</p>
+<p>如果你来自Web领域，你可能觉得在代码中用JS和React框架建立基于本地化UI的App的界面并实现导航不过是小菜一碟。但如果你主要开发的是本地App，我希望你能从中感受到React Native的优点：快速的App迭代，现代JavaScript语法的支持和清晰的CSS样式规则。</p>
+<p>在你的下一个App中，你是会使用这个框架，还是会继续顽固不化地使用Swift和O-C呢？</p>
+<p>无论你怎么选择，我都希望你能从本文的介绍中学习到一些有趣的新东西，并把其中一些原理应用到你的下一个项目中。</p>
+<p>如果你有任何问题及建议，请参与到下面的讨论中来！</p>
+
+  </section>
+  <div class="read-more">
+   
+   <div class="read-more-item read-more-item-left">
+    
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="/2015/11/29/xcode7-xctest/" title="link to " class="read-more-link-title"> Xcode 7智能测试化工具XCTest学习
+       </a></h2>
+       <p class="excerpt">单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量 谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正 &hellip;</p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          2015-11-29
+          </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="/2015/11/29/xcode7-xctest/">继续阅读</a>
+       </div>
+    
+   </div>
+   
+   <div class="read-more-item read-more-item-right">
+    
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="/2015/10/24/aop-ios/" title="link to ">漫谈iOS AOP编程之路 </a>
+       </h2>
+       <p class="excerpt">　面向切面编程(也叫面向方面)：Aspect Oriented Programming(AOP),是目前软件开发中的一个热点。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。　　AOP是OOP的延续，是（Aspect Or&hellip;
+       </p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          2015-10-24 </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="/2015/10/24/aop-ios/">继续阅读</a>
+       </div>
+    
+   </div>
+   
+</div>
+
+  
+<section class="post-comments">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'http://sunnycn.gitcafe.io'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'sunnycn21'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//sunnycn21.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the 
+<a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</section>
+
+
+
+
+
+  
+</article>
+        <footer class="footer">
+        <div>
+            <span class="footer__copyright">
+    	       本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>
+            </span>
+            <span class="footer__copyright">
+    	       基于 <a href="https://hexo.io/">Hexo</a> 搭建，感谢 <a href="https://www.github.com/</a> 为本站提供稳定的服务
+            </span>
+            <span class="footer__copyright">
+    	       &copy; 2016. | - 本站由 <a href="https://github.com/sunnyvalue/">@sunnyvalue</a> 创建，采用 <a href="https://github.com/sunnyvalue/sunny-blog.git">huno</a> 作为主题
+            </span>
+            本页点击 
+            <span id="busuanzi_value_page_pv"></span> 次|;本站总点击 <span id="busuanzi_value_site_pv"></span> 次|;您是第 <span id="busuanzi_value_site_uv">
+            </span> 位访客
+	        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	        </script>
+            <span><a href="/sitemap.xml">Google网站地图</a></span>
+  	        <span><a href="/baidusitemap.xml">百度网站地图</a></span>
+        </div>
+  	 <script>
+		(function(){
+    		var bp = document.createElement('script');
+    		bp.src = '//push.zhanzhang.baidu.com/push.js';
+    		var s = document.getElementsByTagName("script")[0];
+    		s.parentNode.insertBefore(bp, s);
+		})();
+	 </script>
+        </footer>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script> 
+    
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+  	var hm = document.createElement("script");
+  	hm.src = "//hm.baidu.com/hm.js?bff0d31b7343635ef2daea623ff5ec14";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+     
+    <!--kill ie6 --><!--[if IE 6]><script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script><![endif]-->
+</body>
+</html>

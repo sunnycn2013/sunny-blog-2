@@ -1,0 +1,23 @@
+<% if (config.disqus_shortname && page.comments){ %>
+<section class="post-comments">
+<div id="disqus_thread"></div>
+<script>
+var disqus_config = function () {
+this.page.url = 'http://sunnycn.gitcafe.io'; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 'sunnycn21'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//sunnycn21.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the 
+<a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+</section>
+<% } %>
+
+
+

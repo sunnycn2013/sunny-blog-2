@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2016/01/12/qianduan/</loc>
+    <lastmod>2016-01-22T14:59:06.000Z</lastmod>
+    <data>
+        <display>
+        <title>做一个不可替代的架构师</title>
+        <pubTime>2016-01-11T16:00:00.000Z</pubTime>
+        
+        <tag>js </tag>
+         
+        <tag>做一个不可替代的架构师 </tag>
+         
+        <tag>前端 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2016/01/17/protocol_mvvm/</loc>
+    <lastmod>2016-01-19T15:37:45.000Z</lastmod>
+    <data>
+        <display>
+        <title>一种基于面相协议的MVVM设计思路</title>
+        <pubTime>2016-01-16T16:00:00.000Z</pubTime>
+        
+        <tag>MVP </tag>
+         
+        <tag>MVV </tag>
+         
+        <tag>MVVM </tag>
+         
+        <tag>iOS </tag>
+         
+        <tag>iOS开发框架 </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2016/01/02/abouts/</loc>
+    <lastmod>2016-01-17T14:50:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>大家好，我是sunny，博客迁移至Github ，多多关照</title>
+        <pubTime>2016-01-02T11:37:30.000Z</pubTime>
+        
+        <tag>iOS </tag>
+         
+        <tag>sunnycn的博客 </tag>
+         
+        <tag>电子商务 </tag>
+         
+        <tag>风之痕的博客教程 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2016/01/10/hexo-course/</loc>
+    <lastmod>2016-01-17T14:38:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo教程GitCafe部署搭建博客</title>
+        <pubTime>2016-01-09T16:00:00.000Z</pubTime>
+        
+        <tag>GitCafe下搭建博客 </tag>
+         
+        <tag>Hexo教程 </tag>
+         
+        <tag>iOS </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2015/11/09/react-native-cut/</loc>
+    <lastmod>2016-01-17T09:31:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>React-Native牛刀小试仿京东砍啊砍砍到你手软 </title>
+        <pubTime>2015-11-08T16:00:00.000Z</pubTime>
+        
+        <tag>React-Native </tag>
+         
+        <tag>iOS </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2015/11/29/xcode7-xctest/</loc>
+    <lastmod>2016-01-17T09:31:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Xcode 7智能测试化工具XCTest学习</title>
+        <pubTime>2015-11-28T16:00:00.000Z</pubTime>
+        
+        <tag>XCTestCase </tag>
+         
+        <tag>iOS </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2015/12/22/mvp-ios/</loc>
+    <lastmod>2016-01-17T09:31:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>基于面向协议MVP模式下的软件设计－iOS篇 </title>
+        <pubTime>2015-12-21T16:00:00.000Z</pubTime>
+        
+        <tag>iOS </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2015/10/01/cell_height_calulate/</loc>
+    <lastmod>2016-01-17T09:31:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>UITableViewCell 高度计算从混沌初始到天地交泰 </title>
+        <pubTime>2015-09-30T16:00:00.000Z</pubTime>
+        
+        <tag>AutoLayout </tag>
+         
+        <tag>FDTemplateLayoutCell </tag>
+         
+        <tag>TableViewCell </tag>
+         
+        <tag>iOS </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sunnycn.gitcafe.io/2015/10/24/aop-ios/</loc>
+    <lastmod>2016-01-05T13:30:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>漫谈iOS AOP编程之路 </title>
+        <pubTime>2015-10-23T16:00:00.000Z</pubTime>
+        
+        <tag>AOP </tag>
+         
+        <tag>iOS </tag>
+         
+        <tag>电子商务 </tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>

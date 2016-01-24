@@ -1,0 +1,37 @@
+<div class="read-more">
+   
+   <div class="read-more-item read-more-item-left">
+    <% if(page.prev){ %>
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="<%- config.root %><%- page.prev.path %>" title="link to " class="read-more-link-title"> <%= page.prev.title %>
+       </a></h2>
+       <p class="excerpt"><%- page.prev.description.substr(0,200) %> &hellip;</p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          <%= date(page.prev.date, config.date_format) %>
+          </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="<%- config.root %><%- page.prev.path %>">继续阅读</a>
+       </div>
+    <% }%>
+   </div>
+   
+   <div class="read-more-item read-more-item-right">
+    <% if(page.next){ %>
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title">
+       <a href="<%- config.root %><%- page.next.path %>" title="link to "><%= page.next.title %></a>
+       </h2>
+       <p class="excerpt"><%- page.next.description.substr(0,150) %>&hellip;
+       </p>
+       <div class="post-list__meta">
+          <time datetime="{{date format="DD MMM YYYY"}}" class="post-list__meta--date date">
+          <%= date(page.next.date, config.date_format) %> </time> &#8226; 
+          <span class="post-list__meta--tags tags">风之痕</span>
+          <a class="btn-border-small" href="<%- config.root %><%- page.next.path %>">继续阅读</a>
+       </div>
+    <% }%>
+   </div>
+   
+</div>

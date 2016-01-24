@@ -1,0 +1,38 @@
+<div class="archive-main">
+  <% var last; %>
+  <% var months=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Spt","Oct","Nov","Dec"); %>
+  <% page.posts.each(function(post, i){ %>
+    <div class="arichive-list">
+      <% var year = date(post.date, config.archive_date_format_for_title); %>
+      <% if(year !=last){ %>
+        <dt class="arichive-list-header"></dt>
+        <dt class="arichive-list-title">
+          <span><%= year%></span>
+          <%=months[post.date.month()] %>
+        </dt>
+        <% last = year; %>
+      <% } else{ %>
+        
+      <% }%>
+
+        <dd class="archive-item">
+          <a href="<%- config.root %><%- post.path %>" title="link to <%= post.title %>" class="archive-item-title">
+              <%= post.title %>
+          </a>
+
+          <em class="archive-item-date">
+            <time datetime="<%= date(post.date, config.archive_date_format) %>"><%= date(post.date, config.archive_date_format) %></time>
+          </em>
+        </dd>
+      </div>
+  <% }) %>
+
+</div>
+
+<script type="text/javascript"> 
+  $(".archive-item").hover(function(){
+    $(this).animate({background:'green'},"slow");
+  },function(){
+    $(this).animate({background:'white'},"slow");
+  });
+</script>
