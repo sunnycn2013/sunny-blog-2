@@ -1457,8 +1457,8 @@ i {
   margin-top: 0;
   margin-bottom: .2em;
   font-size: 1.5em;
-/*  -webkit-font-smoothing: antialiased;
-*/  line-height: 1.3em; }
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.3em; }
   .post-list__post-title a {
     color: #333333; }
     .post-list__post-title a:hover {
