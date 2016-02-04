@@ -8,17 +8,17 @@
     <script src="/js/scale.fix.js"></script>
     
     <title>
-    归档: 2015 | 风之痕的博客
+    Archives: 2015 | 风之痕的博客
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="hello 大家好，我是sunny，目前就职于360buy...">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="归档: 2015">
+    <meta property="og:title" content="Archives: 2015">
     <meta property="og:url" content="http://sunnycn.gitcafe.io/archives/2015/index.html">
     <meta property="og:site_name" content="风之痕">
     <meta property="og:description" content="hello 大家好，我是sunny，目前就职于360buy...">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="归档: 2015">
+    <meta name="twitter:title" content="Archives: 2015">
     <meta name="twitter:description" content="hello 大家好，我是sunny，目前就职于360buy...">
     <meta name="author" content="关于前端与iOS、React,ReactNative、黑客与画家 | 如画，Web &amp; Mobile Lover，iOS Engineer,移动端 | 这里是 @风之痕 的个人博客，与你一起发现更大的世界。">
     
@@ -204,14 +204,19 @@
         </dd>
       </div>
   
-
 </div>
 
-<script type="text/javascript"> 
-  $(".archive-item").hover(function(){
-    $(this).animate({background:'green'},"slow");
-  },function(){
-    $(this).animate({background:'white'},"slow");
+<script type="text/javascript">
+  $(function(){
+    $('.archive-item').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '15px','color': '#4BA96A'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px', 'color': '#c7c7c7'}, 200);            
+    });   
   });
 </script>
         <footer class="footer">

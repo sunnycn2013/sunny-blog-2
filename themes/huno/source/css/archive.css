@@ -65,6 +65,7 @@
 }
 .read-more {
   margin-bottom: 1em;
+  background-color: 'red';
 }
 .read-more-item {
   display: inline;
