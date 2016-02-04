@@ -29,10 +29,16 @@
 
 </div>
 
-<script type="text/javascript"> 
-  $(".archive-item").hover(function(){
-    $(this).animate({background:'green'},"slow");
-  },function(){
-    $(this).animate({background:'white'},"slow");
+<script type="text/javascript">
+  $(function(){
+    $('.archive-item').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '20px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);            
+    });   
   });
 </script>
