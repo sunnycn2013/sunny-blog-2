@@ -14,23 +14,23 @@
     <meta name="description" content="单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量 谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Xcode 7智能测试化工具XCTest学习 | 风之痕">
-    <meta property="og:url" content="http://sunnycn.gitcafe.io/2015/11/29/xcode7-xctest/index.html">
+    <meta property="og:url" content="http://fengzhihen.com/2015/11/29/xcode7-xctest/index.html">
     <meta property="og:site_name" content="风之痕">
     <meta property="og:description" content="单元测试在程序里面可以理解一个模块一个方法，在每个可能存在的模块都进行测试，确保每个模块都没有问题，从而提高整体程序的质量 谈的单元测试此处不免要聊起一个新的概念，代码覆盖率，最早最一次听到这个词的时间觉得很可笑(难道这个也需要统计)，故名思义 代码覆盖率 ＝ 实际执行的代码行数 / 整个工程总代码行数，直白来讲就是这样一个数值，上述谈过，单元测试的目的除了讲程序分成各个最小的单元独立去测试确保正">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-createpro.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-selectschem.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-editschem.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-testsucc.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-testlog.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-coverage.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-createpro.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-selectschem.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-editschem.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-testsucc.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-testlog.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-coverage.png">
     <meta property="og:image" content="http://ccguo.gitcafe.io/blog/2015-12-16/post-xctest-case/xctest-case-coverageItem.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-trackDao.png">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-UItestIB.jpeg">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-createUITestSelectItem.jpeg">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-createUITestPro.jpeg">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-uitestStart.jpeg">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/xctest-case-uitestcode.jpeg">
-    <meta property="og:image" content="http://sunnycn.gitcafe.io/images/2015-12-16/post-xctest-case/end.gif">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-trackDao.png">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-UItestIB.jpeg">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-createUITestSelectItem.jpeg">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-createUITestPro.jpeg">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-uitestStart.jpeg">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/xctest-case-uitestcode.jpeg">
+    <meta property="og:image" content="http://fengzhihen.com/images/2015-12-16/post-xctest-case/end.gif">
     <meta property="og:updated_time" content="2016-01-17T09:31:24.000Z">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Xcode 7智能测试化工具XCTest学习 | 风之痕">
@@ -61,7 +61,7 @@
           <p class="panel-cover__description">hello 大家好，我是sunny，目前就职于360buy...</p>
           <hr class="panel-cover__divider panel-cover__divider--secondary" />
           <p class="panel-cover__description">
-            <a href="http://sunnycn.gitcafe.io" target="_blank">sunnycn.gitcafe.io - 我维护的 iOS 使用技巧分享网站，每周三更新，欢迎访问..</a>
+            <a href="http://fengzhihen.com" target="_blank">sunnycn.gitcafe.io - 我维护的 iOS 使用技巧分享网站，每周三更新，欢迎访问..</a>
           </p>
           <div class="navigation-wrapper">
             <nav class="cover-navigation cover-navigation--primary">
