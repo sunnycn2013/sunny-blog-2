@@ -26,13 +26,18 @@
         </dd>
       </div>
   <% }) %>
-
 </div>
 
-<script type="text/javascript"> 
-  $(".archive-item").hover(function(){
-    $(this).animate({background:'green'},"slow");
-  },function(){
-    $(this).animate({background:'white'},"slow");
+<script type="text/javascript">
+  $(function(){
+    $('.archive-item').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '15px','color': '#4BA96A'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px', 'color': '#c7c7c7'}, 200);            
+    });   
   });
 </script>
